@@ -1,0 +1,1044 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1"/>
+  <meta name="generator" content="distill" />
+
+  <style type="text/css">
+  /* Hide doc at startup (prevent jankiness while JS renders/transforms) */
+  body {
+    visibility: hidden;
+  }
+  </style>
+
+ <!--radix_placeholder_import_source-->
+ <!--/radix_placeholder_import_source-->
+
+  <!--radix_placeholder_meta_tags-->
+  <title>Data Description</title>
+  
+  <meta property="description" itemprop="description" content="Welcome to our new blog, My Blog. We hope you enjoy &#10;reading what we have to say!"/>
+  
+  
+  <!--  https://schema.org/Article -->
+  <meta property="article:published" itemprop="datePublished" content="2020-09-03"/>
+  <meta property="article:created" itemprop="dateCreated" content="2020-09-03"/>
+  <meta name="article:author" content="Jimmy Effendy"/>
+  
+  <!--  https://developers.facebook.com/docs/sharing/webmasters#markup -->
+  <meta property="og:title" content="Data Description"/>
+  <meta property="og:type" content="article"/>
+  <meta property="og:description" content="Welcome to our new blog, My Blog. We hope you enjoy &#10;reading what we have to say!"/>
+  <meta property="og:locale" content="en_US"/>
+  
+  <!--  https://dev.twitter.com/cards/types/summary -->
+  <meta property="twitter:card" content="summary"/>
+  <meta property="twitter:title" content="Data Description"/>
+  <meta property="twitter:description" content="Welcome to our new blog, My Blog. We hope you enjoy &#10;reading what we have to say!"/>
+  
+  <!--/radix_placeholder_meta_tags-->
+  <!--radix_placeholder_rmarkdown_metadata-->
+  
+  <script type="text/json" id="radix-rmarkdown-metadata">
+  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","description","author","date","output"]}},"value":[{"type":"character","attributes":{},"value":["Data Description"]},{"type":"character","attributes":{},"value":["Welcome to our new blog, My Blog. We hope you enjoy \nreading what we have to say!\n"]},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","affiliation"]}},"value":[{"type":"character","attributes":{},"value":["Jimmy Effendy"]},{"type":"character","attributes":{},"value":["Monash University"]}]}]},{"type":"character","attributes":{},"value":["09-03-2020"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["distill::distill_article"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["self_contained"]}},"value":[{"type":"logical","attributes":{},"value":[false]}]}]}]}
+  </script>
+  <!--/radix_placeholder_rmarkdown_metadata-->
+  
+  <script type="text/json" id="radix-resource-manifest">
+  {"type":"character","attributes":{},"value":["data_description_files/bowser-1.9.3/bowser.min.js","data_description_files/crosstalk-1.1.0.1/css/crosstalk.css","data_description_files/crosstalk-1.1.0.1/js/crosstalk.js","data_description_files/crosstalk-1.1.0.1/js/crosstalk.js.map","data_description_files/crosstalk-1.1.0.1/js/crosstalk.min.js","data_description_files/crosstalk-1.1.0.1/js/crosstalk.min.js.map","data_description_files/datatables-binding-0.15/datatables.js","data_description_files/datatables-css-0.0.0/datatables-crosstalk.css","data_description_files/distill-2.2.21/template.v2.js","data_description_files/dt-core-1.10.20/css/jquery.dataTables.extra.css","data_description_files/dt-core-1.10.20/css/jquery.dataTables.min.css","data_description_files/dt-core-1.10.20/js/jquery.dataTables.min.js","data_description_files/dt-core-bootstrap-1.10.20/css/dataTables.bootstrap.extra.css","data_description_files/dt-core-bootstrap-1.10.20/css/dataTables.bootstrap.min.css","data_description_files/dt-core-bootstrap-1.10.20/js/dataTables.bootstrap.min.js","data_description_files/dt-core-bootstrap-1.10.20/js/jquery.dataTables.min.js","data_description_files/dt-core-bootstrap4-1.10.20/css/dataTables.bootstrap4.extra.css","data_description_files/dt-core-bootstrap4-1.10.20/css/dataTables.bootstrap4.min.css","data_description_files/dt-core-bootstrap4-1.10.20/js/dataTables.bootstrap4.min.js","data_description_files/dt-core-bootstrap4-1.10.20/js/jquery.dataTables.min.js","data_description_files/htmlwidgets-1.5.1/htmlwidgets.js","data_description_files/jquery-1.11.3/jquery.min.js","data_description_files/jquery-1.12.4/jquery.min.js","data_description_files/jquery-1.12.4/LICENSE.txt","data_description_files/jquery-sparkline-2.1.2/jquery.sparkline.css","data_description_files/jquery-sparkline-2.1.2/jquery.sparkline.js","data_description_files/jquery-sparkline-2.1.2/jquery.sparkline.min.js","data_description_files/jquery-sparkline-2.1.2/package.json","data_description_files/jquery-sparkline-2.1.2/README.md","data_description_files/sparkline-binding-2.0/sparkline.js","data_description_files/webcomponents-2.0.0/webcomponents.js"]}
+  </script>
+  <!--radix_placeholder_navigation_in_header-->
+  <!--/radix_placeholder_navigation_in_header-->
+  <!--radix_placeholder_distill-->
+  
+  <style type="text/css">
+  
+  body {
+    background-color: white;
+  }
+  
+  .pandoc-table {
+    width: 100%;
+  }
+  
+  .pandoc-table>caption {
+    margin-bottom: 10px;
+  }
+  
+  .pandoc-table th:not([align]) {
+    text-align: left;
+  }
+  
+  .pagedtable-footer {
+    font-size: 15px;
+  }
+  
+  .html-widget {
+    margin-bottom: 2.0em;
+  }
+  
+  .l-screen-inset {
+    padding-right: 16px;
+  }
+  
+  .l-screen .caption {
+    margin-left: 10px;
+  }
+  
+  .shaded {
+    background: rgb(247, 247, 247);
+    padding-top: 20px;
+    padding-bottom: 20px;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  }
+  
+  .shaded .html-widget {
+    margin-bottom: 0;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+  }
+  
+  .shaded .shaded-content {
+    background: white;
+  }
+  
+  .text-output {
+    margin-top: 0;
+    line-height: 1.5em;
+  }
+  
+  .hidden {
+    display: none !important;
+  }
+  
+  d-article {
+    padding-bottom: 30px;
+  }
+  
+  d-appendix {
+    padding-top: 30px;
+  }
+  
+  d-article>p>img {
+    width: 100%;
+  }
+  
+  d-article iframe {
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    margin-bottom: 2.0em;
+    width: 100%;
+  }
+  
+  figure img.external {
+    background: white;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    box-shadow: 0 1px 8px rgba(0, 0, 0, 0.1);
+    padding: 18px;
+    box-sizing: border-box;
+  }
+  
+  /* CSS for table of contents */
+  
+  .d-toc {
+    color: rgba(0,0,0,0.8);
+    font-size: 0.8em;
+    line-height: 1em;
+  }
+  
+  .d-toc-header {
+    font-size: 0.6rem;
+    font-weight: 400;
+    color: rgba(0, 0, 0, 0.5);
+    text-transform: uppercase;
+    margin-top: 0;
+    margin-bottom: 1.3em;
+  }
+  
+  .d-toc a {
+    border-bottom: none;
+  }
+  
+  .d-toc ul {
+    padding-left: 0;
+  }
+  
+  .d-toc li>ul {
+    padding-top: 0.8em;
+    padding-left: 16px;
+    margin-bottom: 0.6em;
+  }
+  
+  .d-toc ul,
+  .d-toc li {
+    list-style-type: none;
+  }
+  
+  .d-toc li {
+    margin-bottom: 0.9em;
+  }
+  
+  .d-toc-separator {
+    margin-top: 20px;
+    margin-bottom: 2em;
+  }
+  
+  .d-article-with-toc {
+    border-top: none;
+    padding-top: 0;
+  }
+  
+  
+  
+  /* Tweak code blocks (note that this CSS is repeated above in an injection
+     into the d-code shadow dom) */
+  
+  d-code {
+    overflow-x: auto !important;
+  }
+  
+  pre.d-code code.d-code {
+    padding-left: 10px;
+    font-size: 12px;
+    border-left: 2px solid rgba(0,0,0,0.1);
+  }
+  
+  pre.text-output {
+  
+    font-size: 12px;
+    color: black;
+    background: none;
+    font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+    text-align: left;
+    white-space: pre;
+    word-spacing: normal;
+    word-break: normal;
+    word-wrap: normal;
+    line-height: 1.5;
+  
+    -moz-tab-size: 4;
+    -o-tab-size: 4;
+    tab-size: 4;
+  
+    -webkit-hyphens: none;
+    -moz-hyphens: none;
+    -ms-hyphens: none;
+    hyphens: none;
+  }
+  
+  @media(min-width: 768px) {
+  
+  d-code {
+    overflow-x: visible !important;
+  }
+  
+  pre.d-code code.d-code  {
+      padding-left: 18px;
+      font-size: 14px;
+  }
+  pre.text-output {
+    font-size: 14px;
+  }
+  }
+  
+  /* Figure */
+  
+  .figure {
+    position: relative;
+    margin-bottom: 2.5em;
+    margin-top: 1.5em;
+  }
+  
+  .figure img {
+    width: 100%;
+  }
+  
+  .figure .caption {
+    color: rgba(0, 0, 0, 0.6);
+    font-size: 12px;
+    line-height: 1.5em;
+  }
+  
+  .figure img.external {
+    background: white;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    box-shadow: 0 1px 8px rgba(0, 0, 0, 0.1);
+    padding: 18px;
+    box-sizing: border-box;
+  }
+  
+  .figure .caption a {
+    color: rgba(0, 0, 0, 0.6);
+  }
+  
+  .figure .caption b,
+  .figure .caption strong, {
+    font-weight: 600;
+    color: rgba(0, 0, 0, 1.0);
+  }
+  
+  
+  
+  /* Tweak 1000px media break to show more text */
+  
+  @media(min-width: 1000px) {
+    .base-grid,
+    distill-header,
+    d-title,
+    d-abstract,
+    d-article,
+    d-appendix,
+    distill-appendix,
+    d-byline,
+    d-footnote-list,
+    d-citation-list,
+    distill-footer {
+      grid-template-columns: [screen-start] 1fr [page-start kicker-start] 80px [middle-start] 50px [text-start kicker-end] 65px 65px 65px 65px 65px 65px 65px 65px [text-end gutter-start] 65px [middle-end] 65px [page-end gutter-end] 1fr [screen-end];
+      grid-column-gap: 16px;
+    }
+  
+    .grid {
+      grid-column-gap: 16px;
+    }
+  
+    d-article {
+      font-size: 1.06rem;
+      line-height: 1.7em;
+    }
+    figure .caption, .figure .caption, figure figcaption {
+      font-size: 13px;
+    }
+  }
+  
+  @media(min-width: 1180px) {
+    .base-grid,
+    distill-header,
+    d-title,
+    d-abstract,
+    d-article,
+    d-appendix,
+    distill-appendix,
+    d-byline,
+    d-footnote-list,
+    d-citation-list,
+    distill-footer {
+      grid-template-columns: [screen-start] 1fr [page-start kicker-start] 60px [middle-start] 60px [text-start kicker-end] 60px 60px 60px 60px 60px 60px 60px 60px [text-end gutter-start] 60px [middle-end] 60px [page-end gutter-end] 1fr [screen-end];
+      grid-column-gap: 32px;
+    }
+  
+    .grid {
+      grid-column-gap: 32px;
+    }
+  }
+  
+  
+  /* Get the citation styles for the appendix (not auto-injected on render since
+     we do our own rendering of the citation appendix) */
+  
+  d-appendix .citation-appendix,
+  .d-appendix .citation-appendix {
+    font-size: 11px;
+    line-height: 15px;
+    border-left: 1px solid rgba(0, 0, 0, 0.1);
+    padding-left: 18px;
+    border: 1px solid rgba(0,0,0,0.1);
+    background: rgba(0, 0, 0, 0.02);
+    padding: 10px 18px;
+    border-radius: 3px;
+    color: rgba(150, 150, 150, 1);
+    overflow: hidden;
+    margin-top: -12px;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+  }
+  
+  
+  /* Social footer */
+  
+  .social_footer {
+    margin-top: 30px;
+    margin-bottom: 0;
+    color: rgba(0,0,0,0.67);
+  }
+  
+  .disqus-comments {
+    margin-right: 30px;
+  }
+  
+  .disqus-comment-count {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.4);
+    cursor: pointer;
+  }
+  
+  #disqus_thread {
+    margin-top: 30px;
+  }
+  
+  .article-sharing a {
+    border-bottom: none;
+    margin-right: 8px;
+  }
+  
+  .article-sharing a:hover {
+    border-bottom: none;
+  }
+  
+  .sidebar-section.subscribe {
+    font-size: 12px;
+    line-height: 1.6em;
+  }
+  
+  .subscribe p {
+    margin-bottom: 0.5em;
+  }
+  
+  
+  .article-footer .subscribe {
+    font-size: 15px;
+    margin-top: 45px;
+  }
+  
+  
+  .sidebar-section.custom {
+    font-size: 12px;
+    line-height: 1.6em;
+  }
+  
+  .custom p {
+    margin-bottom: 0.5em;
+  }
+  
+  
+  /* Improve display for browsers without grid (IE/Edge <= 15) */
+  
+  .downlevel {
+    line-height: 1.6em;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", Arial, sans-serif;
+    margin: 0;
+  }
+  
+  .downlevel .d-title {
+    padding-top: 6rem;
+    padding-bottom: 1.5rem;
+  }
+  
+  .downlevel .d-title h1 {
+    font-size: 50px;
+    font-weight: 700;
+    line-height: 1.1em;
+    margin: 0 0 0.5rem;
+  }
+  
+  .downlevel .d-title p {
+    font-weight: 300;
+    font-size: 1.2rem;
+    line-height: 1.55em;
+    margin-top: 0;
+  }
+  
+  .downlevel .d-byline {
+    padding-top: 0.8em;
+    padding-bottom: 0.8em;
+    font-size: 0.8rem;
+    line-height: 1.8em;
+  }
+  
+  .downlevel .section-separator {
+    border: none;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+  }
+  
+  .downlevel .d-article {
+    font-size: 1.06rem;
+    line-height: 1.7em;
+    padding-top: 1rem;
+    padding-bottom: 2rem;
+  }
+  
+  
+  .downlevel .d-appendix {
+    padding-left: 0;
+    padding-right: 0;
+    max-width: none;
+    font-size: 0.8em;
+    line-height: 1.7em;
+    margin-bottom: 0;
+    color: rgba(0,0,0,0.5);
+    padding-top: 40px;
+    padding-bottom: 48px;
+  }
+  
+  .downlevel .footnotes ol {
+    padding-left: 13px;
+  }
+  
+  .downlevel .base-grid,
+  .downlevel .distill-header,
+  .downlevel .d-title,
+  .downlevel .d-abstract,
+  .downlevel .d-article,
+  .downlevel .d-appendix,
+  .downlevel .distill-appendix,
+  .downlevel .d-byline,
+  .downlevel .d-footnote-list,
+  .downlevel .d-citation-list,
+  .downlevel .distill-footer,
+  .downlevel .appendix-bottom,
+  .downlevel .posts-container {
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+  
+  @media(min-width: 768px) {
+    .downlevel .base-grid,
+    .downlevel .distill-header,
+    .downlevel .d-title,
+    .downlevel .d-abstract,
+    .downlevel .d-article,
+    .downlevel .d-appendix,
+    .downlevel .distill-appendix,
+    .downlevel .d-byline,
+    .downlevel .d-footnote-list,
+    .downlevel .d-citation-list,
+    .downlevel .distill-footer,
+    .downlevel .appendix-bottom,
+    .downlevel .posts-container {
+    padding-left: 150px;
+    padding-right: 150px;
+    max-width: 900px;
+  }
+  }
+  
+  .downlevel pre code {
+    display: block;
+    border-left: 2px solid rgba(0, 0, 0, .1);
+    padding: 0 0 0 20px;
+    font-size: 14px;
+  }
+  
+  .downlevel code, .downlevel pre {
+    color: black;
+    background: none;
+    font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+    text-align: left;
+    white-space: pre;
+    word-spacing: normal;
+    word-break: normal;
+    word-wrap: normal;
+    line-height: 1.5;
+  
+    -moz-tab-size: 4;
+    -o-tab-size: 4;
+    tab-size: 4;
+  
+    -webkit-hyphens: none;
+    -moz-hyphens: none;
+    -ms-hyphens: none;
+    hyphens: none;
+  }
+  
+  </style>
+  
+  <script type="application/javascript">
+  
+  function is_downlevel_browser() {
+    if (bowser.isUnsupportedBrowser({ msie: "12", msedge: "16"},
+                                   window.navigator.userAgent)) {
+      return true;
+    } else {
+      return window.load_distill_framework === undefined;
+    }
+  }
+  
+  // show body when load is complete
+  function on_load_complete() {
+  
+    // set body to visible
+    document.body.style.visibility = 'visible';
+  
+    // force redraw for leaflet widgets
+    if (window.HTMLWidgets) {
+      var maps = window.HTMLWidgets.findAll(".leaflet");
+      $.each(maps, function(i, el) {
+        var map = this.getMap();
+        map.invalidateSize();
+        map.eachLayer(function(layer) {
+          if (layer instanceof L.TileLayer)
+            layer.redraw();
+        });
+      });
+    }
+  
+    // trigger 'shown' so htmlwidgets resize
+    $('d-article').trigger('shown');
+  }
+  
+  function init_distill() {
+  
+    init_common();
+  
+    // create front matter
+    var front_matter = $('<d-front-matter></d-front-matter>');
+    $('#distill-front-matter').wrap(front_matter);
+  
+    // create d-title
+    $('.d-title').changeElementType('d-title');
+  
+    // create d-byline
+    var byline = $('<d-byline></d-byline>');
+    $('.d-byline').replaceWith(byline);
+  
+    // create d-article
+    var article = $('<d-article></d-article>');
+    $('.d-article').wrap(article).children().unwrap();
+  
+    // move posts container into article
+    $('.posts-container').appendTo($('d-article'));
+  
+    // create d-appendix
+    $('.d-appendix').changeElementType('d-appendix');
+  
+    // create d-bibliography
+    var bibliography = $('<d-bibliography></d-bibliography>');
+    $('#distill-bibliography').wrap(bibliography);
+  
+    // flag indicating that we have appendix items
+    var appendix = $('.appendix-bottom').children('h3').length > 0;
+  
+    // replace citations with <d-cite>
+    $('.citation').each(function(i, val) {
+      appendix = true;
+      var cites = $(this).attr('data-cites').split(" ");
+      var dt_cite = $('<d-cite></d-cite>');
+      dt_cite.attr('key', cites.join());
+      $(this).replaceWith(dt_cite);
+    });
+    // remove refs
+    $('#refs').remove();
+  
+    // replace footnotes with <d-footnote>
+    $('.footnote-ref').each(function(i, val) {
+      appendix = true;
+      var href = $(this).attr('href');
+      var id = href.replace('#', '');
+      var fn = $('#' + id);
+      var fn_p = $('#' + id + '>p');
+      fn_p.find('.footnote-back').remove();
+      var text = fn_p.html();
+      var dtfn = $('<d-footnote></d-footnote>');
+      dtfn.html(text);
+      $(this).replaceWith(dtfn);
+    });
+    // remove footnotes
+    $('.footnotes').remove();
+  
+    $('h1.appendix, h2.appendix').each(function(i, val) {
+      $(this).changeElementType('h3');
+    });
+    $('h3.appendix').each(function(i, val) {
+      var id = $(this).attr('id');
+      $('.d-toc a[href="#' + id + '"]').parent().remove();
+      appendix = true;
+      $(this).nextUntil($('h1, h2, h3')).addBack().appendTo($('d-appendix'));
+    });
+  
+    // show d-appendix if we have appendix content
+    $("d-appendix").css('display', appendix ? 'grid' : 'none');
+  
+    // replace code blocks with d-code
+    $('pre>code').each(function(i, val) {
+      var code = $(this);
+      var pre = code.parent();
+      var clz = "";
+      var language = pre.attr('class');
+      if (language) {
+        // map unknown languages to "clike" (without this they just dissapear)
+        if ($.inArray(language, ["bash", "clike", "css", "go", "html",
+                                 "javascript", "js", "julia", "lua", "markdown",
+                                 "markup", "mathml", "python", "svg", "xml"]) == -1)
+          language = "clike";
+        language = ' language="' + language + '"';
+        var dt_code = $('<d-code block' + language + clz + '></d-code>');
+        dt_code.text(code.text());
+        pre.replaceWith(dt_code);
+      } else {
+        code.addClass('text-output').unwrap().changeElementType('pre');
+      }
+    });
+  
+    // localize layout chunks to just output
+    $('.layout-chunk').each(function(i, val) {
+  
+      // capture layout
+      var layout = $(this).attr('data-layout');
+  
+      // apply layout to markdown level block elements
+      var elements = $(this).children().not('d-code, pre.text-output, script');
+      elements.each(function(i, el) {
+        var layout_div = $('<div class="' + layout + '"></div>');
+        if (layout_div.hasClass('shaded')) {
+          var shaded_content = $('<div class="shaded-content"></div>');
+          $(this).wrap(shaded_content);
+          $(this).parent().wrap(layout_div);
+        } else {
+          $(this).wrap(layout_div);
+        }
+      });
+  
+  
+      // unwrap the layout-chunk div
+      $(this).children().unwrap();
+    });
+  
+    // load distill framework
+    load_distill_framework();
+  
+    // wait for window.distillRunlevel == 4 to do post processing
+    function distill_post_process() {
+  
+      if (!window.distillRunlevel || window.distillRunlevel < 4)
+        return;
+  
+      // hide author/affiliations entirely if we have no authors
+      var front_matter = JSON.parse($("#distill-front-matter").html());
+      var have_authors = front_matter.authors && front_matter.authors.length > 0;
+      if (!have_authors)
+        $('d-byline').addClass('hidden');
+  
+      // table of contents
+      if (have_authors) // adjust border if we are in authors
+        $('.d-toc').parent().addClass('d-article-with-toc');
+  
+      // strip links that point to #
+      $('.authors-affiliations').find('a[href="#"]').removeAttr('href');
+  
+      // hide elements of author/affiliations grid that have no value
+      function hide_byline_column(caption) {
+        $('d-byline').find('h3:contains("' + caption + '")').parent().css('visibility', 'hidden');
+      }
+  
+      // affiliations
+      var have_affiliations = false;
+      for (var i = 0; i<front_matter.authors.length; ++i) {
+        var author = front_matter.authors[i];
+        if (author.affiliation !== "&nbsp;") {
+          have_affiliations = true;
+          break;
+        }
+      }
+      if (!have_affiliations)
+        $('d-byline').find('h3:contains("Affiliations")').css('visibility', 'hidden');
+  
+      // published date
+      if (!front_matter.publishedDate)
+        hide_byline_column("Published");
+  
+      // document object identifier
+      var doi = $('d-byline').find('h3:contains("DOI")');
+      var doi_p = doi.next().empty();
+      if (!front_matter.doi) {
+        // if we have a citation and valid citationText then link to that
+        if ($('#citation').length > 0 && front_matter.citationText) {
+          doi.html('Citation');
+          $('<a href="#citation"></a>')
+            .text(front_matter.citationText)
+            .appendTo(doi_p);
+        } else {
+          hide_byline_column("DOI");
+        }
+      } else {
+        $('<a></a>')
+           .attr('href', "https://doi.org/" + front_matter.doi)
+           .html(front_matter.doi)
+           .appendTo(doi_p);
+      }
+  
+       // change plural form of authors/affiliations
+      if (front_matter.authors.length === 1) {
+        var grid = $('.authors-affiliations');
+        grid.children('h3:contains("Authors")').text('Author');
+        grid.children('h3:contains("Affiliations")').text('Affiliation');
+      }
+  
+      // inject pre code styles (can't do this with a global stylesheet b/c a shadow root is used)
+      $('d-code').each(function(i, val) {
+        var style = document.createElement('style');
+        style.innerHTML = 'pre code { padding-left: 10px; font-size: 12px; border-left: 2px solid rgba(0,0,0,0.1); } ' +
+                          '@media(min-width: 768px) { pre code { padding-left: 18px; font-size: 14px; } }';
+        if (this.shadowRoot)
+          this.shadowRoot.appendChild(style);
+      });
+  
+      // move appendix-bottom entries to the bottom
+      $('.appendix-bottom').appendTo('d-appendix').children().unwrap();
+      $('.appendix-bottom').remove();
+  
+      // clear polling timer
+      clearInterval(tid);
+  
+      // show body now that everything is ready
+      on_load_complete();
+    }
+  
+    var tid = setInterval(distill_post_process, 50);
+    distill_post_process();
+  
+  }
+  
+  function init_downlevel() {
+  
+    init_common();
+  
+     // insert hr after d-title
+    $('.d-title').after($('<hr class="section-separator"/>'));
+  
+    // check if we have authors
+    var front_matter = JSON.parse($("#distill-front-matter").html());
+    var have_authors = front_matter.authors && front_matter.authors.length > 0;
+  
+    // manage byline/border
+    if (!have_authors)
+      $('.d-byline').remove();
+    $('.d-byline').after($('<hr class="section-separator"/>'));
+    $('.d-byline a').remove();
+  
+    // remove toc
+    $('.d-toc-header').remove();
+    $('.d-toc').remove();
+    $('.d-toc-separator').remove();
+  
+    // move appendix elements
+    $('h1.appendix, h2.appendix').each(function(i, val) {
+      $(this).changeElementType('h3');
+    });
+    $('h3.appendix').each(function(i, val) {
+      $(this).nextUntil($('h1, h2, h3')).addBack().appendTo($('.d-appendix'));
+    });
+  
+  
+    // inject headers into references and footnotes
+    var refs_header = $('<h3></h3>');
+    refs_header.text('References');
+    $('#refs').prepend(refs_header);
+  
+    var footnotes_header = $('<h3></h3');
+    footnotes_header.text('Footnotes');
+    $('.footnotes').children('hr').first().replaceWith(footnotes_header);
+  
+    // move appendix-bottom entries to the bottom
+    $('.appendix-bottom').appendTo('.d-appendix').children().unwrap();
+    $('.appendix-bottom').remove();
+  
+    // remove appendix if it's empty
+    if ($('.d-appendix').children().length === 0)
+      $('.d-appendix').remove();
+  
+    // prepend separator above appendix
+    $('.d-appendix').before($('<hr class="section-separator" style="clear: both"/>'));
+  
+    // trim code
+    $('pre>code').each(function(i, val) {
+      $(this).html($.trim($(this).html()));
+    });
+  
+    // move posts-container right before article
+    $('.posts-container').insertBefore($('.d-article'));
+  
+    $('body').addClass('downlevel');
+  
+    on_load_complete();
+  }
+  
+  
+  function init_common() {
+  
+    // jquery plugin to change element types
+    (function($) {
+      $.fn.changeElementType = function(newType) {
+        var attrs = {};
+  
+        $.each(this[0].attributes, function(idx, attr) {
+          attrs[attr.nodeName] = attr.nodeValue;
+        });
+  
+        this.replaceWith(function() {
+          return $("<" + newType + "/>", attrs).append($(this).contents());
+        });
+      };
+    })(jQuery);
+  
+    // prevent underline for linked images
+    $('a > img').parent().css({'border-bottom' : 'none'});
+  
+    // mark non-body figures created by knitr chunks as 100% width
+    $('.layout-chunk').each(function(i, val) {
+      var figures = $(this).find('img, .html-widget');
+      if ($(this).attr('data-layout') !== "l-body") {
+        figures.css('width', '100%');
+      } else {
+        figures.css('max-width', '100%');
+        figures.filter("[width]").each(function(i, val) {
+          var fig = $(this);
+          fig.css('width', fig.attr('width') + 'px');
+        });
+  
+      }
+    });
+  
+    // auto-append index.html to post-preview links in file: protocol
+    // and in rstudio ide preview
+    $('.post-preview').each(function(i, val) {
+      if (window.location.protocol === "file:")
+        $(this).attr('href', $(this).attr('href') + "index.html");
+    });
+  
+    // get rid of index.html references in header
+    if (window.location.protocol !== "file:") {
+      $('.distill-site-header a[href]').each(function(i,val) {
+        $(this).attr('href', $(this).attr('href').replace("index.html", "./"));
+      });
+    }
+  
+    // add class to pandoc style tables
+    $('tr.header').parent('thead').parent('table').addClass('pandoc-table');
+    $('.kable-table').children('table').addClass('pandoc-table');
+  
+    // add figcaption style to table captions
+    $('caption').parent('table').addClass("figcaption");
+  
+    // initialize posts list
+    if (window.init_posts_list)
+      window.init_posts_list();
+  
+    // implmement disqus comment link
+    $('.disqus-comment-count').click(function() {
+      window.headroom_prevent_pin = true;
+      $('#disqus_thread').toggleClass('hidden');
+      if (!$('#disqus_thread').hasClass('hidden')) {
+        var offset = $(this).offset();
+        $(window).resize();
+        $('html, body').animate({
+          scrollTop: offset.top - 35
+        });
+      }
+    });
+  }
+  
+  document.addEventListener('DOMContentLoaded', function() {
+    if (is_downlevel_browser())
+      init_downlevel();
+    else
+      window.addEventListener('WebComponentsReady', init_distill);
+  });
+  
+  </script>
+  
+  <!--/radix_placeholder_distill-->
+  <script src="data_description_files/htmlwidgets-1.5.1/htmlwidgets.js"></script>
+  <script src="data_description_files/jquery-1.12.4/jquery.min.js"></script>
+  <link href="data_description_files/datatables-css-0.0.0/datatables-crosstalk.css" rel="stylesheet" />
+  <script src="data_description_files/datatables-binding-0.15/datatables.js"></script>
+  <link href="data_description_files/dt-core-1.10.20/css/jquery.dataTables.min.css" rel="stylesheet" />
+  <link href="data_description_files/dt-core-1.10.20/css/jquery.dataTables.extra.css" rel="stylesheet" />
+  <script src="data_description_files/dt-core-1.10.20/js/jquery.dataTables.min.js"></script>
+  <link href="data_description_files/crosstalk-1.1.0.1/css/crosstalk.css" rel="stylesheet" />
+  <script src="data_description_files/crosstalk-1.1.0.1/js/crosstalk.min.js"></script>
+  <link href="data_description_files/jquery-sparkline-2.1.2/jquery.sparkline.css" rel="stylesheet" />
+  <script src="data_description_files/jquery-sparkline-2.1.2/jquery.sparkline.js"></script>
+  <script src="data_description_files/sparkline-binding-2.0/sparkline.js"></script>
+  <script src="data_description_files/bowser-1.9.3/bowser.min.js"></script>
+  <script src="data_description_files/webcomponents-2.0.0/webcomponents.js"></script>
+  <script src="data_description_files/distill-2.2.21/template.v2.js"></script>
+  <!--radix_placeholder_site_in_header-->
+  <!--/radix_placeholder_site_in_header-->
+
+
+</head>
+
+<body>
+
+<!--radix_placeholder_front_matter-->
+
+<script id="distill-front-matter" type="text/json">
+{"title":"Data Description","description":"Welcome to our new blog, My Blog. We hope you enjoy \nreading what we have to say!","authors":[{"author":"Jimmy Effendy","authorURL":"#","affiliation":"Monash University","affiliationURL":"#"}],"publishedDate":"2020-09-03T00:00:00.000+10:00","citationText":"Effendy, 2020"}
+</script>
+
+<!--/radix_placeholder_front_matter-->
+<!--radix_placeholder_navigation_before_body-->
+<!--/radix_placeholder_navigation_before_body-->
+<!--radix_placeholder_site_before_body-->
+<!--/radix_placeholder_site_before_body-->
+
+<div class="d-title">
+<h1>Data Description</h1>
+<p><p>Welcome to our new blog, My Blog. We hope you enjoy reading what we have to say!</p></p>
+</div>
+
+<div class="d-byline">
+  Jimmy Effendy  (Monash University)
+  
+<br/>09-03-2020
+</div>
+
+<div class="d-article">
+<div class="layout-chunk" data-layout="l-body">
+<style type="text/css">
+thead {
+  background-color: #006DAE;
+  color: white;
+}
+</style>
+</div>
+<div class="layout-chunk" data-layout="l-body">
+<pre><code>
+We have invested a lot of time and effort in creating COVID-19 Data Hub, please cite the following when using it:
+
+  Guidotti, E., Ardia, D., (2020), &quot;COVID-19 Data Hub&quot;,
+  Journal of Open Source Software 5(51):2376, doi:
+  10.21105/joss.02376.
+
+A BibTeX entry for LaTeX users is
+
+  @Article{,
+    title = {COVID-19 Data Hub},
+    year = {2020},
+    doi = {10.21105/joss.02376},
+    author = {Emanuele Guidotti and David Ardia},
+    journal = {Journal of Open Source Software},
+    volume = {5},
+    number = {51},
+    pages = {2376},
+  }
+
+To retrieve citation and metadata of the data sources see ?covid19cite. To hide this message use &#39;verbose = FALSE&#39;.</code></pre>
+</div>
+<div class="layout-chunk" data-layout="l-body">
+<div id="htmlwidget-939490d2664c9d60fded" style="width:100%;height:auto;" class="datatables html-widget"></div>
+<script type="application/json" data-for="htmlwidget-939490d2664c9d60fded">{"x":{"filter":"none","data":[["1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18","19","20","21","22","23","24","25","26","27","28","29","30","31","32","33","34","35","36","37","38","39","40","41","42","43","44","45","46","47","48","49","50","51","52","53","54","55","56","57","58","59","60","61","62","63","64","65","66","67","68","69","70","71","72","73","74","75","76","77","78","79","80","81","82","83","84","85","86","87","88","89","90","91","92","93","94","95","96","97","98","99","100","101","102","103","104","105","106","107","108","109","110","111","112","113","114","115","116","117","118","119","120","121","122","123","124","125","126","127","128","129","130","131","132","133","134","135","136","137","138","139","140","141","142","143","144","145","146","147","148","149","150","151","152","153","154","155","156","157","158","159","160","161","162","163","164","165","166","167","168","169","170","171","172","173","174","175","176","177","178","179","180","181","182","183","184","185","186","187","188","189","190","191","192","193","194","195","196","197","198","199","200","201","202","203","204","205","206","207","208","209","210","211","212","213","214","215","216","217","218","219","220","221","222","223","224","225"],["UKR","UKR","UKR","UKR","UKR","UKR","UKR","UKR","UKR","UKR","UKR","UKR","UKR","UKR","UKR","UKR","UKR","UKR","UKR","UKR","UKR","UKR","UKR","UKR","UKR","UKR","UKR","UKR","UKR","UKR","UKR","UKR","UKR","UKR","UKR","UKR","UKR","UKR","UKR","UKR","UKR","UKR","UKR","UKR","UKR","UKR","UKR","UKR","UKR","UKR","UKR","UKR","UKR","UKR","UKR","UKR","UKR","UKR","UKR","UKR","UKR","UKR","UKR","UKR","UKR","UKR","UKR","UKR","UKR","UKR","UKR","UKR","UKR","UKR","UKR","UKR","UKR","UKR","UKR","UKR","UKR","UKR","UKR","UKR","UKR","UKR","UKR","UKR","UKR","UKR","UKR","UKR","UKR","UKR","UKR","UKR","UKR","UKR","UKR","UKR","UKR","UKR","UKR","UKR","UKR","UKR","UKR","UKR","UKR","UKR","UKR","UKR","UKR","UKR","UKR","UKR","UKR","UKR","UKR","UKR","UKR","UKR","UKR","UKR","UKR","UKR","UKR","UKR","UKR","UKR","UKR","UKR","UKR","UKR","UKR","UKR","UKR","UKR","UKR","UKR","UKR","UKR","UKR","UKR","UKR","UKR","UKR","UKR","UKR","UKR","UKR","UKR","UKR","UKR","UKR","UKR","UKR","UKR","UKR","UKR","UKR","UKR","UKR","UKR","UKR","UKR","UKR","UKR","UKR","UKR","UKR","UKR","UKR","UKR","UKR","UKR","UKR","UKR","UKR","UKR","UKR","UKR","UKR","UKR","UKR","UKR","UKR","UKR","UKR","UKR","UKR","UKR","UKR","UKR","UKR","UKR","UKR","UKR","UKR","UKR","UKR","UKR","UKR","UKR","UKR","UKR","UKR","UKR","UKR","UKR","UKR","UKR","UKR","UKR","UKR","UKR","UKR","UKR","UKR","UKR","UKR","UKR","UKR","UKR","UKR"],["2020-01-22","2020-01-23","2020-01-24","2020-01-25","2020-01-26","2020-01-27","2020-01-28","2020-01-29","2020-01-30","2020-01-31","2020-02-01","2020-02-02","2020-02-03","2020-02-04","2020-02-05","2020-02-06","2020-02-07","2020-02-08","2020-02-09","2020-02-10","2020-02-11","2020-02-12","2020-02-13","2020-02-14","2020-02-15","2020-02-16","2020-02-17","2020-02-18","2020-02-19","2020-02-20","2020-02-21","2020-02-22","2020-02-23","2020-02-24","2020-02-25","2020-02-26","2020-02-27","2020-02-28","2020-02-29","2020-03-01","2020-03-02","2020-03-03","2020-03-04","2020-03-05","2020-03-06","2020-03-07","2020-03-08","2020-03-09","2020-03-10","2020-03-11","2020-03-12","2020-03-13","2020-03-14","2020-03-15","2020-03-16","2020-03-17","2020-03-18","2020-03-19","2020-03-20","2020-03-21","2020-03-22","2020-03-23","2020-03-24","2020-03-25","2020-03-26","2020-03-27","2020-03-28","2020-03-29","2020-03-30","2020-03-31","2020-04-01","2020-04-02","2020-04-03","2020-04-04","2020-04-05","2020-04-06","2020-04-07","2020-04-08","2020-04-09","2020-04-10","2020-04-11","2020-04-12","2020-04-13","2020-04-14","2020-04-15","2020-04-16","2020-04-17","2020-04-18","2020-04-19","2020-04-20","2020-04-21","2020-04-22","2020-04-23","2020-04-24","2020-04-25","2020-04-26","2020-04-27","2020-04-28","2020-04-29","2020-04-30","2020-05-01","2020-05-02","2020-05-03","2020-05-04","2020-05-05","2020-05-06","2020-05-07","2020-05-08","2020-05-09","2020-05-10","2020-05-11","2020-05-12","2020-05-13","2020-05-14","2020-05-15","2020-05-16","2020-05-17","2020-05-18","2020-05-19","2020-05-20","2020-05-21","2020-05-22","2020-05-23","2020-05-24","2020-05-25","2020-05-26","2020-05-27","2020-05-28","2020-05-29","2020-05-30","2020-05-31","2020-06-01","2020-06-02","2020-06-03","2020-06-04","2020-06-05","2020-06-06","2020-06-07","2020-06-08","2020-06-09","2020-06-10","2020-06-11","2020-06-12","2020-06-13","2020-06-14","2020-06-15","2020-06-16","2020-06-17","2020-06-18","2020-06-19","2020-06-20","2020-06-21","2020-06-22","2020-06-23","2020-06-24","2020-06-25","2020-06-26","2020-06-27","2020-06-28","2020-06-29","2020-06-30","2020-07-01","2020-07-02","2020-07-03","2020-07-04","2020-07-05","2020-07-06","2020-07-07","2020-07-08","2020-07-09","2020-07-10","2020-07-11","2020-07-12","2020-07-13","2020-07-14","2020-07-15","2020-07-16","2020-07-17","2020-07-18","2020-07-19","2020-07-20","2020-07-21","2020-07-22","2020-07-23","2020-07-24","2020-07-25","2020-07-26","2020-07-27","2020-07-28","2020-07-29","2020-07-30","2020-07-31","2020-08-01","2020-08-02","2020-08-03","2020-08-04","2020-08-05","2020-08-06","2020-08-07","2020-08-08","2020-08-09","2020-08-10","2020-08-11","2020-08-12","2020-08-13","2020-08-14","2020-08-15","2020-08-16","2020-08-17","2020-08-18","2020-08-19","2020-08-20","2020-08-21","2020-08-22","2020-08-23","2020-08-24","2020-08-25","2020-08-26","2020-08-27","2020-08-28","2020-08-29","2020-08-30","2020-08-31","2020-09-01","2020-09-02"],[null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,20608,23522,null,null,35153,null,null,42823,47096,null,57111,null,null,null,72296,null,null,89373,93519,98719,104544,111859,118545,122752,129723,134592,139759,144283,151569,159155,167107,176403,181552,187307,192247,202495,211614,220638,227801,232899,239961,248529,null,267185,277712,285626,291868,301736,312532,322746,337318,348279,null,356187,371668,381552,392316,403551,414542,424046,431085,437444,445940,456509,468172,479111,489334,497284,507251,null,530442,542247,553737,563194,569589,580814,594002,606766,null,631966,641911,649150,656122,666147,677257,690953,null,715770,722513,731858,745313,760247,773831,786843,796680,803657,813396,827157,840332,854064,864596,877262,881997,894393,907360,921858,937006,951082,963641,970705,983350,998299,1013793,1029220,1046080,1058383,1067006,null,1098665,1116641,1135051,1154378,1169351,1179434,1195561,1214941,1233925,1252842,1273821,1289589,1300289,1315409,1335000,1356698,1378519,1400726,1416001,1425351,1436206,1452006,1472736,1494243,1516712,1536171,1550280,1556655,1597707],[null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,1,1,1,1,1,1,1,1,1,1,3,3,3,7,14,14,16,29,47,73,73,97,145,196,310,356,475,548,645,794,897,1072,1225,1308,1319,1462,1668,1892,2203,2511,2777,3102,3372,3764,4161,4662,5106,5449,5710,6125,6592,7170,7647,8125,8617,9009,9410,9866,10406,10861,11411,11913,12331,12697,13184,13691,14195,14710,15232,15648,16023,16425,16847,17330,17858,18291,18616,18876,19230,19706,20148,20580,20986,21245,21584,21905,22382,22811,23204,23672,24562,24895,25385,25981,26542,27101,27599,28077,28479,29015,29706,30415,31177,31851,32536,33209,33986,34833,35755,36615,37361,38056,38901,39852,40854,41975,42932,43856,44538,45254,45924,46821,47705,48628,49468,50053,50622,51457,52285,53116,53941,54647,55285,55931,56779,57640,58466,59333,60077,60767,61454,62295,63169,64173,65317,66261,67096,68030,69078,70300,71404,72609,73761,74781,75880,77169,78515,80018,81534,82767,83812,85023,86504,88136,89917,91795,93490,95007,96653,98658,100810,102948,105337,107379,109234,110949,112653,114663,117172,119751,121930,124132,126279,128833],[null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,1,1,1,1,1,1,5,5,6,8,10,13,19,22,25,28,28,28,35,45,61,79,89,97,119,143,186,246,275,347,359,367,424,504,782,782,840,864,992,1103,1238,1413,1498,1548,1619,1875,2097,2396,2706,2909,3060,3288,3373,3716,4143,4473,4906,5116,5276,5632,5955,6227,6585,6929,7108,7234,7575,7995,8439,8934,9311,9538,10053,10461,10838,11468,11815,12265,12513,12657,12892,13257,13642,14075,14489,14596,14771,15054,15485,16001,16588,16974,17078,17211,17538,18009,18365,18927,19350,19585,19679,19792,20244,20755,21296,21907,22131,22462,22970,23912,24606,25634,26513,26971,27356,28021,29005,29822,30675,31479,31836,32397,33186,34176,35035,35932,36573,36885,37202,37852,38523,39327,39945,40516,40755,41097,41849,42784,43812,44369,45006,45335,45723,46313,47084,47678,48288,48946,49346,49692,50508,51358,52086,52769,53458,53968,54262,54657,55327,56149,57051,58156,58775,59162,59904,60943],[null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,0,null,null,null,null,null,null,null,null,1,1,1,1,2,2,2,3,3,3,3,3,5,5,5,9,10,13,17,20,22,27,32,37,38,45,52,57,69,73,83,93,98,108,116,125,133,141,151,161,174,187,201,201,209,220,239,250,261,272,279,288,303,316,327,340,361,376,391,408,425,439,456,476,497,514,535,548,564,579,588,605,617,623,644,658,669,679,696,708,724,733,742,755,770,785,796,805,818,841,864,880,890,899,911,922,953,976,995,1004,1012,1022,1045,1061,1078,1097,1121,1142,1161,1173,1188,1200,1227,1243,1265,1278,1299,1323,1344,1362,1389,1400,1415,1429,1444,1462,1473,1496,1504,1517,1537,1553,1570,1591,1610,1625,1636,1650,1673,1697,1717,1733,1749,1762,1788,1813,1846,1879,1906,1925,1950,1979,1999,2023,2042,2076,2100,2122,2152,2182,2225,2248,2286,2313,2335,2362,2399,2449,2499,2540,2575,2605,2654,2705]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>id<\/th>\n      <th>date<\/th>\n      <th>tests<\/th>\n      <th>confirmed<\/th>\n      <th>recovered<\/th>\n      <th>deaths<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":5,"columnDefs":[{"className":"dt-right","targets":[3,4,5,6]},{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false,"lengthMenu":[5,10,25,50,100]}},"evals":[],"jsHooks":[]}</script>
+</div>
+<div class="layout-chunk" data-layout="l-body">
+<div id="htmlwidget-8b305809c2ec2653652d" style="width:100%;height:auto;" class="datatables html-widget"></div>
+<script type="application/json" data-for="htmlwidget-8b305809c2ec2653652d">{"x":{"filter":"none","data":[["1","2","3","4"],["confirmed","deaths","recovered","tests"],[1,0,1,20608],[4995,201,1434.25,272448.5],[25140,796,13858.5,631966],[36418.4565217391,932.605714285714,19278.5301204819,676591.183206107],[59519,1527,34820.25,1021506.5],[128833,2705,60943,1597707],["<span id=\"htmlwidget-70c67a577e75b3eca730\" class=\"sparkline html-widget\"><\/span>\n<script type=\"application/json\" data-for=\"htmlwidget-70c67a577e75b3eca730\">{\"x\":{\"values\":[null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,1,1,1,1,1,1,1,1,1,1,3,3,3,7,14,14,16,29,47,73,73,97,145,196,310,356,475,548,645,794,897,1072,1225,1308,1319,1462,1668,1892,2203,2511,2777,3102,3372,3764,4161,4662,5106,5449,5710,6125,6592,7170,7647,8125,8617,9009,9410,9866,10406,10861,11411,11913,12331,12697,13184,13691,14195,14710,15232,15648,16023,16425,16847,17330,17858,18291,18616,18876,19230,19706,20148,20580,20986,21245,21584,21905,22382,22811,23204,23672,24562,24895,25385,25981,26542,27101,27599,28077,28479,29015,29706,30415,31177,31851,32536,33209,33986,34833,35755,36615,37361,38056,38901,39852,40854,41975,42932,43856,44538,45254,45924,46821,47705,48628,49468,50053,50622,51457,52285,53116,53941,54647,55285,55931,56779,57640,58466,59333,60077,60767,61454,62295,63169,64173,65317,66261,67096,68030,69078,70300,71404,72609,73761,74781,75880,77169,78515,80018,81534,82767,83812,85023,86504,88136,89917,91795,93490,95007,96653,98658,100810,102948,105337,107379,109234,110949,112653,114663,117172,119751,121930,124132,126279,128833],\"options\":{\"type\":\"box\",\"height\":20,\"width\":60},\"width\":60,\"height\":20},\"evals\":[],\"jsHooks\":[]}<\/script>","<span id=\"htmlwidget-1e765bdada12a76c99a0\" class=\"sparkline html-widget\"><\/span>\n<script type=\"application/json\" data-for=\"htmlwidget-1e765bdada12a76c99a0\">{\"x\":{\"values\":[null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,0,null,null,null,null,null,null,null,null,1,1,1,1,2,2,2,3,3,3,3,3,5,5,5,9,10,13,17,20,22,27,32,37,38,45,52,57,69,73,83,93,98,108,116,125,133,141,151,161,174,187,201,201,209,220,239,250,261,272,279,288,303,316,327,340,361,376,391,408,425,439,456,476,497,514,535,548,564,579,588,605,617,623,644,658,669,679,696,708,724,733,742,755,770,785,796,805,818,841,864,880,890,899,911,922,953,976,995,1004,1012,1022,1045,1061,1078,1097,1121,1142,1161,1173,1188,1200,1227,1243,1265,1278,1299,1323,1344,1362,1389,1400,1415,1429,1444,1462,1473,1496,1504,1517,1537,1553,1570,1591,1610,1625,1636,1650,1673,1697,1717,1733,1749,1762,1788,1813,1846,1879,1906,1925,1950,1979,1999,2023,2042,2076,2100,2122,2152,2182,2225,2248,2286,2313,2335,2362,2399,2449,2499,2540,2575,2605,2654,2705],\"options\":{\"type\":\"box\",\"height\":20,\"width\":60},\"width\":60,\"height\":20},\"evals\":[],\"jsHooks\":[]}<\/script>","<span id=\"htmlwidget-ede86b19cb16710b5da7\" class=\"sparkline html-widget\"><\/span>\n<script type=\"application/json\" data-for=\"htmlwidget-ede86b19cb16710b5da7\">{\"x\":{\"values\":[null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,1,1,1,1,1,1,5,5,6,8,10,13,19,22,25,28,28,28,35,45,61,79,89,97,119,143,186,246,275,347,359,367,424,504,782,782,840,864,992,1103,1238,1413,1498,1548,1619,1875,2097,2396,2706,2909,3060,3288,3373,3716,4143,4473,4906,5116,5276,5632,5955,6227,6585,6929,7108,7234,7575,7995,8439,8934,9311,9538,10053,10461,10838,11468,11815,12265,12513,12657,12892,13257,13642,14075,14489,14596,14771,15054,15485,16001,16588,16974,17078,17211,17538,18009,18365,18927,19350,19585,19679,19792,20244,20755,21296,21907,22131,22462,22970,23912,24606,25634,26513,26971,27356,28021,29005,29822,30675,31479,31836,32397,33186,34176,35035,35932,36573,36885,37202,37852,38523,39327,39945,40516,40755,41097,41849,42784,43812,44369,45006,45335,45723,46313,47084,47678,48288,48946,49346,49692,50508,51358,52086,52769,53458,53968,54262,54657,55327,56149,57051,58156,58775,59162,59904,60943],\"options\":{\"type\":\"box\",\"height\":20,\"width\":60},\"width\":60,\"height\":20},\"evals\":[],\"jsHooks\":[]}<\/script>","<span id=\"htmlwidget-941d57f94332212a3728\" class=\"sparkline html-widget\"><\/span>\n<script type=\"application/json\" data-for=\"htmlwidget-941d57f94332212a3728\">{\"x\":{\"values\":[null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,20608,23522,null,null,35153,null,null,42823,47096,null,57111,null,null,null,72296,null,null,89373,93519,98719,104544,111859,118545,122752,129723,134592,139759,144283,151569,159155,167107,176403,181552,187307,192247,202495,211614,220638,227801,232899,239961,248529,null,267185,277712,285626,291868,301736,312532,322746,337318,348279,null,356187,371668,381552,392316,403551,414542,424046,431085,437444,445940,456509,468172,479111,489334,497284,507251,null,530442,542247,553737,563194,569589,580814,594002,606766,null,631966,641911,649150,656122,666147,677257,690953,null,715770,722513,731858,745313,760247,773831,786843,796680,803657,813396,827157,840332,854064,864596,877262,881997,894393,907360,921858,937006,951082,963641,970705,983350,998299,1013793,1029220,1046080,1058383,1067006,null,1098665,1116641,1135051,1154378,1169351,1179434,1195561,1214941,1233925,1252842,1273821,1289589,1300289,1315409,1335000,1356698,1378519,1400726,1416001,1425351,1436206,1452006,1472736,1494243,1516712,1536171,1550280,1556655,1597707],\"options\":{\"type\":\"box\",\"height\":20,\"width\":60},\"width\":60,\"height\":20},\"evals\":[],\"jsHooks\":[]}<\/script>"]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>Type<\/th>\n      <th>Min<\/th>\n      <th>Q1<\/th>\n      <th>Median<\/th>\n      <th>Mean<\/th>\n      <th>Q3<\/th>\n      <th>Max<\/th>\n      <th>Distribution<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"paging":false,"dom":"t","fnDrawCallback":"\nfunction(){\n  HTMLWidgets.staticRender();\n}\n","columnDefs":[{"targets":2,"render":"function(data, type, row, meta) { return DTWidget.formatRound(data, 2, 3, \",\", \".\"); }"},{"targets":3,"render":"function(data, type, row, meta) { return DTWidget.formatRound(data, 2, 3, \",\", \".\"); }"},{"targets":5,"render":"function(data, type, row, meta) { return DTWidget.formatRound(data, 2, 3, \",\", \".\"); }"},{"targets":4,"render":"function(data, type, row, meta) { return DTWidget.formatRound(data, 2, 3, \",\", \".\"); }"},{"targets":6,"render":"function(data, type, row, meta) { return DTWidget.formatRound(data, 2, 3, \",\", \".\"); }"},{"targets":7,"render":"function(data, type, row, meta) { return DTWidget.formatRound(data, 2, 3, \",\", \".\"); }"},{"className":"dt-right","targets":[2,3,4,5,6,7]},{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":["options.fnDrawCallback","options.columnDefs.0.render","options.columnDefs.1.render","options.columnDefs.2.render","options.columnDefs.3.render","options.columnDefs.4.render","options.columnDefs.5.render"],"jsHooks":[]}</script>
+</div>
+<!--radix_placeholder_article_footer-->
+<!--/radix_placeholder_article_footer-->
+</div>
+
+<div class="d-appendix">
+</div>
+
+
+<!--radix_placeholder_site_after_body-->
+<!--/radix_placeholder_site_after_body-->
+<!--radix_placeholder_appendices-->
+<div class="appendix-bottom"></div>
+<!--/radix_placeholder_appendices-->
+<!--radix_placeholder_navigation_after_body-->
+<!--/radix_placeholder_navigation_after_body-->
+
+</body>
+
+</html>

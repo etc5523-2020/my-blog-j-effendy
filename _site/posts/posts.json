@@ -14,5 +14,21 @@
     "preview": {},
     "last_modified": "2020-09-04T13:07:36+10:00",
     "input_file": {}
+  },
+  {
+    "path": "posts/data_description/",
+    "title": "Data Description",
+    "description": "Welcome to our new blog, My Blog. We hope you enjoy \nreading what we have to say!",
+    "author": [
+      {
+        "name": "Jimmy Effendy",
+        "url": {}
+      }
+    ],
+    "date": "2020-09-03",
+    "categories": [],
+    "preview": {},
+    "last_modified": "2020-09-04T00:25:14+10:00",
+    "input_file": {}
   }
 ]
