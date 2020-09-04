@@ -30,7 +30,7 @@ thead {
 ```
 
 ```{r data-read}
-covid_ukraine <- covid19(country = "Ukraine")
+covid_ukraine <- covid19(country = "Ukraine", verbose = FALSE)
 
 covid_ukraine_long <- covid_ukraine %>% 
   select(date, tests, confirmed, recovered, deaths) %>% 
@@ -41,8 +41,11 @@ covid_ukraine_long <- covid_ukraine %>%
 
 ```{r cases}
 covid_ukraine %>% 
-  select(date:deaths) %>% 
-  datatable(options = list(pageLength = 5))
+  select(date:deaths) %>%
+  filter(confirmed != "NA") %>% 
+  datatable(options = list(pageLength = 10),
+            colnames = c('ID', 'Date', 'Tests', 'Confirmed', 'Recovered', 'Deaths'),
+            caption = '')
 ```
 
 ```{r summary-stats}
