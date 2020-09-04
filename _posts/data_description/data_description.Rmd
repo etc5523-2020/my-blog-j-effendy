@@ -1,7 +1,7 @@
 ---
-title: "Data Description"
+title: "Ukraine COVID-19 Brief Analysis"
 description: |
-  Brief description about the background of data being sourced and used for this blog.
+  Brief analysis about daiuly COVID-19 cases that occur in Ukraine.
 author:
   - name: Jimmy Effendy 
     affiliation: Monash University
@@ -43,8 +43,11 @@ covid_ukraine_long <- covid_ukraine %>%
                values_to = "cases")
 ```
 
-This blog focuses to analyse data related to COVID-19 phenomenon that specifically occur in Ukraine.
-
+This blog post focuses in analysing data related to COVID-19 phenomenon that specifically occur in Ukraine.
+The main source of data used in this blog originated from `covid19` package.
+This data is funded by the Institute for Data Valorization IVADO, Canada.
+They collect COVID-19 related data from various parts of the world and merge them to help 
+the research community a better understanding of COVID-19 (Institute for Data Valorization IVADO, 2019).
 
 ```{r cases}
 covid_ukraine %>% 
@@ -52,8 +55,15 @@ covid_ukraine %>%
   filter(date >= "2020-03-03") %>% 
   datatable(options = list(pageLength = 10),
             colnames = c('ID', 'Date', 'Daily Tests', 'Daily Confirmed Cases', 'Daily Recovered', 'Daily Deaths'),
-            caption = 'Daily Updates of COVID-19 Statistics in Ukraine')
+            caption = 'Table 1: Daily Updates of COVID-19 Statistics in Ukraine')
 ```
+
+Table 1 shows the number of daily tests, confirmed cases, recovery, and deaths that occurred in Ukraine since 
+the day they recorded their first case, which is March 3rd, 2020. As shown in the table, there were no new confirmed 
+cases on the first 10 days. However, they started to record COVID-19 related first death on day 11. Starting day 25, 
+they started to record new daily cases in the region of 100 cases. By day 46, they recorded a daily jump of 500 cases 
+for the first time. The largest number of daily confirmed cases occurred on the 29th of August with 2,579 cases, while 
+54 is the largest number of daily deaths which happened on the 3rd of September.
 
 ```{r summary-stats}
 covid_ukraine_long %>%
@@ -64,6 +74,7 @@ covid_ukraine_long %>%
             Distribution = spk_chr(cases, type = "box")) %>% 
   unnest_wider(fivenum) %>% 
   datatable(escape = FALSE,
+            caption = "Table 2: Summary Statistics of Daily Cases in Ukraine",
             options = list(paging = FALSE,
                            dom = "t",
                            fnDrawCallback = htmlwidgets::JS(
@@ -76,23 +87,15 @@ function(){
   spk_add_deps() %>% 
   formatRound(columns = c("Min", "Q1", "Mean", "Median", "Q3", "Max"), digits = 2)
 ```
-```{r correlation}
-covid_ukraine %>% 
-  select(tests:deaths) %>% 
-  mutate(tests = coalesce(tests, 0),
-         confirmed = coalesce(confirmed, 0),
-         recovered = coalesce(recovered, 0),
-         deaths = coalesce(deaths, 0)) %>% 
-  transform(tests = as.numeric(tests),
-            confirmed = as.numeric(confirmed),
-            recovered = as.numeric(recovered),
-            deaths = as.numeric(deaths)) %>%
-  select(-id) %>%
-  cor() %>% 
-  as.data.frame() %>% 
-  rownames_to_column("Variables") %>% 
-  formattable(list(area(col = 2:5) ~ color_tile("#F5B7B1", "#7DCEA0")))
-```
+
+Summary statistics of daily tests, confirmed cases, recovery, and deaths are shown in Table 2.
+The table shows that the distributions for these variables are skewed to the right. This means that
+the majority of the variables have relatively smaller values, but there are few values are relatively large.
+The mean and median of the variables arguably have similar values except for `daily_recovered` where its mean 
+are more than twice the value of its median. This means that `daily_recovered` variable has significant influence of
+high value outliers. On average (mean), there are 538 people that are tested positive, 253 people recovered, 
+and 11 people dead due to the virus in Ukraine. Around 6,646 tests are conducted daily in Ukraine.
+
 
 ```{r correlation}
 covid_ukraine %>% 

@@ -17,8 +17,8 @@
   },
   {
     "path": "posts/data_description/",
-    "title": "Data Description",
-    "description": "Brief description about the background of data being sourced and used for this blog.",
+    "title": "Ukraine COVID-19 Brief Analysis",
+    "description": "Brief analysis about daiuly COVID-19 cases that occur in Ukraine.",
     "author": [
       {
         "name": "Jimmy Effendy",
@@ -28,7 +28,7 @@
     "date": "2020-09-03",
     "categories": [],
     "preview": {},
-    "last_modified": "2020-09-04T19:40:08+10:00",
+    "last_modified": "2020-09-04T21:07:47+10:00",
     "input_file": "data_description.utf8.md"
   }
 ]
