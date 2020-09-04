@@ -5,7 +5,8 @@ description: |
 author:
   - name: Jimmy Effendy 
     affiliation: Monash University
-date: 09-03-2020
+date: 09-04-2020
+bibliography: bibliography.bib
 output:
   distill::distill_article:
     self_contained: false
@@ -44,10 +45,16 @@ covid_ukraine_long <- covid_ukraine %>%
 ```
 
 This blog post focuses in analysing data related to COVID-19 phenomenon that specifically occur in Ukraine.
-The main source of data used in this blog originated from `covid19` package.
+The source of data used in this blog originated from `covid19` package [@covid].
 This data is funded by the Institute for Data Valorization IVADO, Canada.
 They collect COVID-19 related data from various parts of the world and merge them to help 
-the research community a better understanding of COVID-19 (Institute for Data Valorization IVADO, 2019).
+the research community a better understanding of COVID-19.
+
+As the statistics provided are mostly cumulative, a fair amount of data wrangling needed to be done
+to calculate non-cumulative statistics. This is done by utilising the `tidyverse` package [@tidyverse]. In addition to that, 
+`DT` [@dt], `formattable` [@formattable], `sparkline` [@sparkline] packages were used for presenting the data in tables.
+
+This blog post will largely explore and analyse the following variables: `daily_confirmed`, `daily_tests`, `daily_recovered`, `daily_deaths`.
 
 ```{r cases}
 covid_ukraine %>% 
@@ -88,13 +95,14 @@ function(){
   formatRound(columns = c("Min", "Q1", "Mean", "Median", "Q3", "Max"), digits = 2)
 ```
 
-Summary statistics of daily tests, confirmed cases, recovery, and deaths are shown in Table 2.
+Summary statistics of the variables of interest are shown in Table 2.
 The table shows that the distributions for these variables are skewed to the right. This means that
-the majority of the variables have relatively smaller values, but there are few values are relatively large.
+the majority of the variables have relatively smaller values, but there are few large values.
 The mean and median of the variables arguably have similar values except for `daily_recovered` where its mean 
-are more than twice the value of its median. This means that `daily_recovered` variable has significant influence of
-high value outliers. On average (mean), there are 538 people that are tested positive, 253 people recovered, 
-and 11 people dead due to the virus in Ukraine. Around 6,646 tests are conducted daily in Ukraine.
+are more than twice the value of its median. This means that the daily number of people recovered from the virus
+are mostly below 253 as the mean can be significantly influenced by outliers. On average (mean), there are 
+538 people that are tested positive, 253 people recovered, and 11 people dead due to the virus in Ukraine. 
+Around 6,646 tests are conducted daily in Ukraine.
 
 
 ```{r correlation}
@@ -112,5 +120,15 @@ covid_ukraine %>%
   cor() %>% 
   as.data.frame() %>% 
   rownames_to_column("Variables") %>% 
+  rename(c(`Daily Tests` = daily_tests, 
+           `Daily Confirmed` = daily_confirmed, 
+           `Daily Recovered` = daily_recovered, 
+           `Daily Deaths` = daily_deaths)) %>% 
   formattable(list(area(col = 2:5) ~ color_tile("#F5B7B1", "#7DCEA0")))
 ```
+
+The third table shows the correlation matrix between the variables of interest.
+The variables have a very high positive correlation coefficient with each other. Nevertheless, compared 
+to the other variables, the number of daily tests and daily recovery are the least correlated. In contrast, 
+the number of daily confirmed cases and daily deaths have the highest positive correlation coefficients. 
+This is expected as the number of daily deaths is likely to increase when the number of daily confirmed cases increases.

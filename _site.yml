@@ -1,7 +1,7 @@
 name: "my-blog-j-effendy"
-title: "My Blog"
+title: "JE Blog"
 description: |
-  My Blog
+  JE Blog
 output_dir: "_site"
 navbar:
   right:
