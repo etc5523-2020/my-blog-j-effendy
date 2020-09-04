@@ -18,7 +18,7 @@
   {
     "path": "posts/data_description/",
     "title": "Data Description",
-    "description": "Welcome to our new blog, My Blog. We hope you enjoy \nreading what we have to say!",
+    "description": "Brief description about the background of data being sourced and used for this blog.",
     "author": [
       {
         "name": "Jimmy Effendy",
@@ -28,7 +28,7 @@
     "date": "2020-09-03",
     "categories": [],
     "preview": {},
-    "last_modified": "2020-09-04T13:45:27+10:00",
+    "last_modified": "2020-09-04T19:40:08+10:00",
     "input_file": "data_description.utf8.md"
   }
 ]

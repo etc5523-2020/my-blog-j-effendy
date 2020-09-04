@@ -1,8 +1,7 @@
 ---
 title: "Data Description"
 description: |
-  Welcome to our new blog, My Blog. We hope you enjoy 
-  reading what we have to say!
+  Brief description about the background of data being sourced and used for this blog.
 author:
   - name: Jimmy Effendy 
     affiliation: Monash University
@@ -22,30 +21,38 @@ library(formattable)
 library(sparkline)
 ```
 
-```{css, echo = FALSE}
+```{css}
 thead {
-  background-color: #006DAE;
+  background-color: darkslategrey;
   color: white;
 }
 ```
 
 ```{r data-read}
-covid_ukraine <- covid19(country = "Ukraine", verbose = FALSE)
+covid_ukraine <- covid19(country = "Ukraine", verbose = FALSE, raw = FALSE) %>% 
+  select(date:deaths) %>% 
+  mutate(daily_tests = tests - lag(tests),
+         daily_confirmed = confirmed - lag(confirmed),
+         daily_recovered = recovered - lag(recovered),
+         daily_deaths = deaths - lag(deaths))
 
 covid_ukraine_long <- covid_ukraine %>% 
-  select(date, tests, confirmed, recovered, deaths) %>% 
-  pivot_longer(cols = tests:deaths,
+  select(date, daily_tests, daily_confirmed, daily_recovered, daily_deaths) %>% 
+  pivot_longer(cols = daily_tests:daily_deaths,
                names_to = "type",
                values_to = "cases")
 ```
 
+This blog focuses to analyse data related to COVID-19 phenomenon that specifically occur in Ukraine.
+
+
 ```{r cases}
 covid_ukraine %>% 
-  select(date:deaths) %>%
-  filter(confirmed != "NA") %>% 
+  select(date, daily_tests, daily_confirmed, daily_recovered, daily_deaths) %>%
+  filter(date >= "2020-03-03") %>% 
   datatable(options = list(pageLength = 10),
-            colnames = c('ID', 'Date', 'Tests', 'Confirmed', 'Recovered', 'Deaths'),
-            caption = '')
+            colnames = c('ID', 'Date', 'Daily Tests', 'Daily Confirmed Cases', 'Daily Recovered', 'Daily Deaths'),
+            caption = 'Daily Updates of COVID-19 Statistics in Ukraine')
 ```
 
 ```{r summary-stats}
@@ -68,4 +75,39 @@ function(){
 ))) %>% 
   spk_add_deps() %>% 
   formatRound(columns = c("Min", "Q1", "Mean", "Median", "Q3", "Max"), digits = 2)
+```
+```{r correlation}
+covid_ukraine %>% 
+  select(tests:deaths) %>% 
+  mutate(tests = coalesce(tests, 0),
+         confirmed = coalesce(confirmed, 0),
+         recovered = coalesce(recovered, 0),
+         deaths = coalesce(deaths, 0)) %>% 
+  transform(tests = as.numeric(tests),
+            confirmed = as.numeric(confirmed),
+            recovered = as.numeric(recovered),
+            deaths = as.numeric(deaths)) %>%
+  select(-id) %>%
+  cor() %>% 
+  as.data.frame() %>% 
+  rownames_to_column("Variables") %>% 
+  formattable(list(area(col = 2:5) ~ color_tile("#F5B7B1", "#7DCEA0")))
+```
+
+```{r correlation}
+covid_ukraine %>% 
+  select(daily_tests, daily_confirmed, daily_recovered, daily_deaths) %>% 
+  mutate(daily_tests = coalesce(daily_tests, 0),
+         daily_confirmed = coalesce(daily_confirmed, 0),
+         daily_recovered = coalesce(daily_recovered, 0),
+         daily_deaths = coalesce(daily_deaths, 0)) %>% 
+  transform(daily_tests = as.numeric(daily_tests),
+            daily_confirmed = as.numeric(daily_confirmed),
+            daily_recovered = as.numeric(daily_recovered),
+            daily_deaths = as.numeric(daily_deaths)) %>%
+  select(-id) %>%
+  cor() %>% 
+  as.data.frame() %>% 
+  rownames_to_column("Variables") %>% 
+  formattable(list(area(col = 2:5) ~ color_tile("#F5B7B1", "#7DCEA0")))
 ```
