@@ -1,0 +1,74 @@
+---
+title: "COVID-19 in Serbia"
+description: |
+  Brief analysis about COVID-19 cases that occur in Serbia
+author:
+  - name: Jimmy Effendy 
+    url: https://je-etc5523.netlify.app/
+    affiliation: Monash University
+date: 09-15-2020
+bibliography: bibliography.bib
+output:
+  distill::distill_article:
+    self_contained: false
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+```{r library}
+library(COVID19)
+library(tidyverse)
+library(DT)
+library(formattable)
+library(sparkline)
+library(lubridate)
+library(GGally)
+library(plotly)
+```
+
+```{r data-read}
+covid <- covid19(country = "Serbia", verbose = FALSE, raw = FALSE) %>%
+  mutate(daily_tests = tests - lag(tests),
+         daily_confirmed = confirmed - lag(confirmed),
+         daily_recovered = recovered - lag(recovered),
+         daily_deaths = deaths - lag(deaths),
+         day = day(date),
+         month = month(date, label = TRUE, abbr = TRUE),
+         year = year(date))
+
+#covid_long <- covid %>% 
+  #select(date, daily_tests, daily_confirmed, daily_recovered, daily_deaths) %>% 
+ # pivot_longer(cols = daily_tests:daily_deaths,
+           #    names_to = "type",
+          #     values_to = "cases")
+```
+
+```{r}
+covid %>% ggplot(aes(x = date,
+                     y = daily_tests)) +
+  geom_col()
+
+covid %>% ggplot(aes(x = date,
+                     y = daily_confirmed)) +
+  geom_col()
+
+covid %>% ggplot(aes(x = date,
+                     y = daily_recovered)) +
+  geom_col()
+
+covid %>% ggplot(aes(x = date,
+                     y = daily_deaths)) +
+  geom_col()
+```
+
+```{r label, options}
+covid_pairs <- covid %>% select(daily_tests:daily_deaths,
+                                -id)
+
+highlight_key(covid_pairs) %>%
+  GGally::ggpairs(upper=list(continuous="points")) %>% 
+  ggplotly() %>% 
+  highlight("plotly_selected")
+```
