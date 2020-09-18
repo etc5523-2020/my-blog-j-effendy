@@ -107,4 +107,4 @@ ggplotly(p2)
 
 In this section, we are going to analyse how COVID-19 confirmed cases fluctuates as government rules on mobility restrictions changes. These fluctuations are plotted in figure  \@ref(fig:restriction-bar) where the confirmed cases time-series are faceted against government restrictions on social gatherings, school closing and stay home. The lower the restriction value, the lower the restrictions imposed by the government.
 
-As expected, the government eases restrictions as the number of confirmed cases are managable. As a result, however, the number of COVID-19 cases increases significantly not long after.
+As expected, the government eases restrictions as the number of confirmed cases are manageable. As a result, however, the number of COVID-19 cases increases significantly not long after. For instance, after Serbia dealt with the first wave, the government started to lift restrictions, especially on stay home and social gathering. Not long after this, the second wave started to kick in. The government then thightened the restrictions just before the peak of the second wave.
