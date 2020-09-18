@@ -6,7 +6,7 @@ author:
   - name: Jimmy Effendy 
     url: https://je-etc5523.netlify.app/
     affiliation: Monash University
-date: 09-15-2020
+date: 09-18-2020
 bibliography: bibliography.bib
 output:
   distill::distill_article:
@@ -41,11 +41,11 @@ covid <- covid19(country = "Serbia", verbose = FALSE, raw = FALSE) %>%
 
 Today's post aims to analyse COVID-19 development in Serbia. We're still using the same data source for this week: dataset retrieved from `covid19` package [@covid].
 
-Similarly, the data wrangling techniques performed for this blog post are the same as last week as the statistics provided are mostly cumulative. The `tidyverse` package [@tidyverse] was used to performed this wrangling. In addition to that, `ggplot2` [@ggplot] package is used to present the data in plots.
+Similarly, the data wrangling techniques performed for this blog post are the same as last week as the statistics provided are mostly cumulative. The `tidyverse` package [@tidyverse] was used to performed this wrangling. In addition to that, `ggplot2` [@ggplot] and `plotly` [@plotly] packages is used to present the data in plots.
 
 This blog post will largely explore and analyse the following variables: `daily_confirmed`, `daily_tests`, `daily_deaths`.
 
-# COVID-19 Development from the Start
+# COVID-19 Development from the Beginning
 
 ```{r covid-overall, fig.cap='Timeseries of COVID-19 confirmed cases, deaths, and tests in Serbia', fig.align='center'}
 covid_daily <- covid %>% 
@@ -70,6 +70,41 @@ p <- covid_daily %>% filter(date > "2020-02-25",
 ggplotly(p)
 ```
 
-Serbia began testing people for COVID-19 infections starting 26th February, and their first confirmed cases on 6th March. Figure \@ref(fig:covid-overall) reflects the distributions of COVID-19 daily confirmed cases, deaths, and tests from 26th February. As shown in the figure, we can see multimodality characteristics in all these variables. In addition, it appears that the data for daily confirmed cases and deaths have a fair amount of missing values. This is indicated by the presence of gaps in the bar charts above. Another unusual thing is that the numbers for both daily confirmed cases and deaths for 26th of July is significantly higher than the rests. While there is nothing to confirm this, it is fair to assume that this number is high to accommodate the missing value the day before (25th of July).
+Serbia began testing people for COVID-19 infections starting 26th February, and their first confirmed cases on 6th March. Figure \@ref(fig:covid-overall) reflects the distributions of COVID-19 daily confirmed cases, deaths, and tests from 26th February. As shown in the figure, we can see multimodality characteristics in all these variables. In addition, it appears that the data for daily confirmed cases and deaths have a fair amount of missing values. This is indicated by the presence of gaps in the bar charts above. Another unusual thing is that the numbers for both daily confirmed cases and deaths for 26th of July is significantly higher than the rests. While there is no source to confirm this, it is fair to assume that this number is high to accommodate the missing value the day before (25th of July).
 
 The graph indicates that there are two waves of COVID-19 cases in Serbia. The first wave of COVID-19 confirmed cases peaked in mid-April and then it started to subside. In early June, the number of confirmed cases of COVID-19 started to surged, and it reached its peak in late July. Similar to the first wave, the number of confirmed cases decreases after it reached its peak.
+
+# The Effect of Government Imposed Rescritions to the Confirmed Cases
+
+```{r restrictions}
+covid_daily_restict <- covid %>% 
+  # pivot_longer(cols = starts_with("daily"),
+  #              names_to = "daily_type",
+  #              values_to = "counts") %>% 
+  #select(date, school_closing, gatherings_restrictions, stay_home_restrictions, day:counts) %>% 
+  pivot_longer(cols = c('school_closing', 'stay_home_restrictions', 'gatherings_restrictions'),
+               names_to = "restriction_type",
+               values_to = "restriction_value") %>% 
+  select(date, restriction_type, restriction_value, daily_confirmed)
+
+covid_daily_restict$restriction_value <- as.factor(covid_daily_restict$restriction_value)
+```
+
+```{r restriction-bar, fig.cap='Timeseries of COVID-19 confirmed cases with Government Imposed Restrictions', fig.align='center', fig.width=10}
+p2 <- covid_daily_restict %>% ggplot(aes(x = date,
+                                   y = daily_confirmed,
+                                   fill = restriction_value)) +
+  geom_col() +
+  facet_wrap(~restriction_type, nrow = 3) +
+  theme_bw() +
+  xlab("Date") +
+  ylab("Counts") +
+  ggtitle("The Distributions of COVID-19 Confirmed Cases Faceted by Restrictions",
+          subtitle = "Confirmed cases increases as government eases restrictions")
+
+ggplotly(p2)
+```
+
+In this section, we are going to analyse how COVID-19 confirmed cases fluctuates as government rules on mobility restrictions changes. These fluctuations are plotted in figure  \@ref(fig:restriction-bar) where the confirmed cases time-series are faceted against government restrictions on social gatherings, school closing and stay home. The lower the restriction value, the lower the restrictions imposed by the government.
+
+As expected, the government eases restrictions as the number of confirmed cases are managable. As a result, however, the number of COVID-19 cases increases significantly not long after.
