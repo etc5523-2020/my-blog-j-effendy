@@ -2,7 +2,7 @@
   {
     "path": "posts/serbia_covid/",
     "title": "COVID-19 in Serbia",
-    "description": "Welcome to our new blog, My Blog. We hope you enjoy \nreading what we have to say!",
+    "description": "Brief analysis about COVID-19 cases that occur in Serbia",
     "author": [
       {
         "name": "Jimmy Effendy",
@@ -12,7 +12,7 @@
     "date": "2020-09-15",
     "categories": [],
     "preview": {},
-    "last_modified": "2020-09-15T22:40:20+10:00",
+    "last_modified": "2020-09-18T23:23:36+10:00",
     "input_file": "serbia_covid.utf8.md"
   },
   {

@@ -37,38 +37,39 @@ covid <- covid19(country = "Serbia", verbose = FALSE, raw = FALSE) %>%
          day = day(date),
          month = month(date, label = TRUE, abbr = TRUE),
          year = year(date))
-
-#covid_long <- covid %>% 
-  #select(date, daily_tests, daily_confirmed, daily_recovered, daily_deaths) %>% 
- # pivot_longer(cols = daily_tests:daily_deaths,
-           #    names_to = "type",
-          #     values_to = "cases")
 ```
 
-```{r}
-covid %>% ggplot(aes(x = date,
-                     y = daily_tests)) +
-  geom_col()
+Today's post aims to analyse COVID-19 development in Serbia. We're still using the same data source for this week: dataset retrieved from `covid19` package [@covid].
 
-covid %>% ggplot(aes(x = date,
-                     y = daily_confirmed)) +
-  geom_col()
+Similarly, the data wrangling techniques performed for this blog post are the same as last week as the statistics provided are mostly cumulative. The `tidyverse` package [@tidyverse] was used to performed this wrangling. In addition to that, `ggplot2` [@ggplot] package is used to present the data in plots.
 
-covid %>% ggplot(aes(x = date,
-                     y = daily_recovered)) +
-  geom_col()
+This blog post will largely explore and analyse the following variables: `daily_confirmed`, `daily_tests`, `daily_deaths`.
 
-covid %>% ggplot(aes(x = date,
-                     y = daily_deaths)) +
-  geom_col()
+# COVID-19 Development from the Start
+
+```{r covid-overall, fig.cap='Timeseries of COVID-19 confirmed cases, deaths, and tests in Serbia', fig.align='center'}
+covid_daily <- covid %>% 
+  pivot_longer(cols = starts_with("daily"),
+               names_to = "daily_type",
+               values_to = "counts") %>% 
+  select(date, day:counts)
+
+p <- covid_daily %>% filter(date > "2020-02-25",
+                       daily_type != "daily_recovered") %>% 
+  ggplot(aes(x = date,
+             y = counts))  +
+  geom_col(fill = "darkblue",
+           alpha = 0.7) +
+  theme_bw() +
+  facet_wrap(~daily_type, scales = "free", nrow = 3) +
+  xlab("Date") +
+  ylab("Counts") +
+  ggtitle("The Distributions of COVID-19 Confirmed Cases, Deaths, and Tests",
+          subtitle = "The distributions have multimodality characteristics")
+
+ggplotly(p)
 ```
 
-```{r label, options}
-covid_pairs <- covid %>% select(daily_tests:daily_deaths,
-                                -id)
+Serbia began testing people for COVID-19 infections starting 26th February, and their first confirmed cases on 6th March. Figure \@ref(fig:covid-overall) reflects the distributions of COVID-19 daily confirmed cases, deaths, and tests from 26th February. As shown in the figure, we can see multimodality characteristics in all these variables. In addition, it appears that the data for daily confirmed cases and deaths have a fair amount of missing values. This is indicated by the presence of gaps in the bar charts above. Another unusual thing is that the numbers for both daily confirmed cases and deaths for 26th of July is significantly higher than the rests. While there is nothing to confirm this, it is fair to assume that this number is high to accommodate the missing value the day before (25th of July).
 
-highlight_key(covid_pairs) %>%
-  GGally::ggpairs(upper=list(continuous="points")) %>% 
-  ggplotly() %>% 
-  highlight("plotly_selected")
-```
+The graph indicates that there are two waves of COVID-19 cases in Serbia. The first wave of COVID-19 confirmed cases peaked in mid-April and then it started to subside. In early June, the number of confirmed cases of COVID-19 started to surged, and it reached its peak in late July. Similar to the first wave, the number of confirmed cases decreases after it reached its peak.
