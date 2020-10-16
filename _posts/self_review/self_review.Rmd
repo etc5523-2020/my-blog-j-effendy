@@ -27,13 +27,11 @@ to explore data related to COVID-19. [USA COVID-19 Explorer](https://github.com/
 to gain insights about the spread of COVID-19 in the US. It provides users with a number of interactive 
 graphs and table where users can control what variable of interests to be displayed.
 
-![Shiny App Screenshot](here::here("_post/self_review/screenshot-plot.PNG")){width=100% .external}
+![Shiny App Screenshot]("_site/posts/self_review/screenshot-plot.PNG"){width=100% .external}
 
 # Self Review
 
 ### What Went Well
-
-#### Layout
 
 The app separates its contents to three pages - plot, table, and about. 
 One of the purpose of this is to prevent the app to be overcrowded by plots and table.
@@ -41,8 +39,6 @@ The contents of the app are divided across these pages based on their functions.
 One page is dedicated to interactive plots as graphs allows users to easily identify
 patterns and trends of a dataset. If the users wish to explore the data in greater
 details, they can use the interactive table provided in the table page.
-
-#### Features
 
 The plots provided in the app are related to arguably two of the most important 
 metrics/statistics in COVID-19 data: cumulative and new daily cases. In addition,
@@ -52,4 +48,9 @@ plots and tables.
 
 ### Rooms for Improvement
 
-One of the limitations that the app has is that it ta
+One of the limitations that the app has is the processing time it takes to respond to user input
+(this only applies to plots). Furthermore, while the app itself is self-explanatory, a quick 
+introduction about what each page tries to accomplish is a nice addition to add. Another limitation
+of the app is that it often crashes when the users do not click the correct area of the map (the map
+will only respond if the users click the name/abbreviation of the states.
+## 
