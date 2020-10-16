@@ -27,9 +27,9 @@ to explore data related to COVID-19. [USA COVID-19 Explorer](https://github.com/
 to gain insights about the spread of COVID-19 in the US. It provides users with a number of interactive 
 graphs and table where users can control what variable of interests to be displayed.
 
-![Shiny App Screenshot]("_site/posts/self_review/screenshot-plot.PNG"){width=100% .external}
+![USA COVID-19 Explorer Screenshot](screenshot-plot.PNG)
 
-# Self Review
+## Self Review
 
 ### What Went Well
 
@@ -42,7 +42,7 @@ details, they can use the interactive table provided in the table page.
 
 The plots provided in the app are related to arguably two of the most important 
 metrics/statistics in COVID-19 data: cumulative and new daily cases. In addition,
-the color scales used for the spatial map are easier to read by people with colorblindness.
+the color scales used for the map are easier to read by people with colorblindness.
 The app also provides users with an appropriate degree of control in interacting with both
 plots and tables.
 
@@ -53,4 +53,16 @@ One of the limitations that the app has is the processing time it takes to respo
 introduction about what each page tries to accomplish is a nice addition to add. Another limitation
 of the app is that it often crashes when the users do not click the correct area of the map (the map
 will only respond if the users click the name/abbreviation of the states.
-## 
+
+### Plausible Addition
+
+One great plausible addition for the app is the incorporation of CSS (Cascading Style Sheet). This
+would have made the app more visually appealing to the users. Moreover, using bubbles on the map
+to show the number of cases on each state would be a great addition to the app. A map from leaflet
+would also make great improvements to the app. Not only will this make the app much more visually 
+appealing to the users, it will also allow the app to compare COVID-19 cases across different
+countries and present it in a map.
+
+### Great Additions but not yet Possible
+
+
