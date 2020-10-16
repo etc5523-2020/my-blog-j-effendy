@@ -1,0 +1,38 @@
+---
+title: "COVID-19 in Serbia"
+description: |
+  Self-reflection on US COVID-19 Explorer Shiny app.
+author:
+  - name: Jimmy Effendy 
+    url: https://je-etc5523.netlify.app/
+    affiliation: Monash University
+date: 10-16-2020
+bibliography: bibliography.bib
+output:
+  distill::distill_article:
+    self_contained: false
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+```{r library}
+library(here)
+```
+
+Last week, I created a Shiny app as a part of an assignment in Communicating with Data course.
+In order to meet the requirement of the assignment, the app needs to give users a degree of freedom
+to explore data related to COVID-19. [USA COVID-19 Explorer](https://github.com/etc5523-2020/shiny-assessment-j-effendy), the Shiny app that I created, allows users
+to gain insights about the spread of COVID-19 in the US. It provides users with a number of interactive 
+graphs and table where users can control what variable of interests to be displayed.
+
+![Shiny App Screenshot](here::here("_post/self_review/screenshot-plot.PNG")){width=100% .external}
+
+## Self Review
+
+#### What Went Well
+
+The app separates its contents to three tabsets - plot, table, and about tabs. 
+Not only does this prevent the app to be overcrowded by plots and table, it also
+allows users to 

@@ -1,5 +1,21 @@
 [
   {
+    "path": "posts/self_review/",
+    "title": "COVID-19 in Serbia",
+    "description": "Self-reflection on US COVID-19 Explorer Shiny app.",
+    "author": [
+      {
+        "name": "Jimmy Effendy",
+        "url": "https://je-etc5523.netlify.app/"
+      }
+    ],
+    "date": "2020-10-16",
+    "categories": [],
+    "preview": {},
+    "last_modified": "2020-10-16T19:42:55+11:00",
+    "input_file": "self_review.utf8.md"
+  },
+  {
     "path": "posts/serbia_covid/",
     "title": "COVID-19 in Serbia",
     "description": "Brief analysis about COVID-19 cases that occur in Serbia",
