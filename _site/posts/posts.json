@@ -1,7 +1,7 @@
 [
   {
     "path": "posts/self_review/",
-    "title": "COVID-19 in Serbia",
+    "title": "Shiny App Self Review",
     "description": "Self-reflection on US COVID-19 Explorer Shiny app.",
     "author": [
       {
@@ -12,7 +12,7 @@
     "date": "2020-10-16",
     "categories": [],
     "preview": {},
-    "last_modified": "2020-10-16T19:42:55+11:00",
+    "last_modified": "2020-10-16T20:32:29+11:00",
     "input_file": "self_review.utf8.md"
   },
   {

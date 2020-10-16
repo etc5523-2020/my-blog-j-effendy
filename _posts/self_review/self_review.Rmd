@@ -1,5 +1,5 @@
 ---
-title: "COVID-19 in Serbia"
+title: "Shiny App Self Review"
 description: |
   Self-reflection on US COVID-19 Explorer Shiny app.
 author:
@@ -29,10 +29,27 @@ graphs and table where users can control what variable of interests to be displa
 
 ![Shiny App Screenshot](here::here("_post/self_review/screenshot-plot.PNG")){width=100% .external}
 
-## Self Review
+# Self Review
 
-#### What Went Well
+### What Went Well
 
-The app separates its contents to three tabsets - plot, table, and about tabs. 
-Not only does this prevent the app to be overcrowded by plots and table, it also
-allows users to 
+#### Layout
+
+The app separates its contents to three pages - plot, table, and about. 
+One of the purpose of this is to prevent the app to be overcrowded by plots and table.
+The contents of the app are divided across these pages based on their functions.
+One page is dedicated to interactive plots as graphs allows users to easily identify
+patterns and trends of a dataset. If the users wish to explore the data in greater
+details, they can use the interactive table provided in the table page.
+
+#### Features
+
+The plots provided in the app are related to arguably two of the most important 
+metrics/statistics in COVID-19 data: cumulative and new daily cases. In addition,
+the color scales used for the spatial map are easier to read by people with colorblindness.
+The app also provides users with an appropriate degree of control in interacting with both
+plots and tables.
+
+### Rooms for Improvement
+
+One of the limitations that the app has is that it ta
