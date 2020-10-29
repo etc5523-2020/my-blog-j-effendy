@@ -26,9 +26,23 @@ that I had. The package that I am reviewing today is called
 [`covidasia`](https://github.com/etc5523-2020/r-package-assessment-Siddhant-96),
 and it is developed by Siddhant Tirodkar. The package embeds a shiny app called 
 *COVID-19 in SAARC Countries* where it  provides a comprehensive summary of 
-COVID-19 spread in major Asian countries. It utilises a line plot, 
+COVID-19 spread in major Asian countries. 
+
+![](covidasia-screenshot.PNG)
+
+
+## The Package
+
+The package can be installed and run as specified in the instruction from 
+README in Github without problem. The app also run well, and it generally
+responds well to users' input. The app utilises a line plot, 
 a map plot, and interactive tables to provide users with cumulative, 
-daily, and monthly statistics. The countries included in this package are:
+daily, and monthly statistics. These plots and table are housed in a page
+and are accompanied by a short description. The plots and table are interactive
+based on users' input (e.g. users can select specific parameter or date range
+to be presented in the plots or table).
+
+The countries included in this package are:
 
 * India
 * Pakistan
@@ -38,10 +52,23 @@ daily, and monthly statistics. The countries included in this package are:
 * Sri Lanka
 * Maldives
 
-## The Package
+A vignette was provided by the package, and it can be found 
+[here](https://etc5523-2020.github.io/r-package-assessment-Siddhant-96/).
+Moreover, further documentations are also provided for all the three functions
+provided by the package, and it can be found locally (e.g. `?covidasia::launch_app()`).
 
-The package can be installed and run as specified in the instruction from 
-README in Github without problem. 
+## Room for Improvement
+
+While it can be installed and run without difficulty, there is definitely a
+room for improvement for the package. Firstly, the line plot and interactive
+table do not respond to users input for country.
+
+![](covidasia-country.png)
+
+Another aspect of the package that can be improved is its documentations.
+While vignettes and readme documents are provided, it would have been 
+better if the background, specific functionality, and overview
+of the package are more thorughly explained/described in the documentations.
 
 # Appendix
 
@@ -76,7 +103,7 @@ The package includes all the following forms of documentation:
 
 #### Functionality
 
-- [ ] **Installation:** Installation succeeds as documented.
+- [x] **Installation:** Installation succeeds as documented.
 - [ ] **Functionality:** Any functional claims of the software been confirmed.
 - [ ] **Performance:** Any performance claims of the software been confirmed.
 - [ ] **Automated tests:** Unit tests cover essential functions of the package
