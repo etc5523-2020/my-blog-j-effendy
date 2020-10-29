@@ -56,6 +56,8 @@ A vignette was provided by the package, and it can be found
 [here](https://etc5523-2020.github.io/r-package-assessment-Siddhant-96/).
 Moreover, further documentations are also provided for all the three functions
 provided by the package, and it can be found locally (e.g. `?covidasia::launch_app()`).
+Lastly, there are two unit tests deployed in the package, and the package
+successfully pass these tests.
 
 ## Room for Improvement
 
@@ -68,7 +70,18 @@ table do not respond to users input for country.
 Another aspect of the package that can be improved is its documentations.
 While vignettes and readme documents are provided, it would have been 
 better if the background, specific functionality, and overview
-of the package are more thorughly explained/described in the documentations.
+of the package are more thoroughly explained/described in the documentations.
+Moreover, while the package successfully passed the tests, there are six warnings
+produced by the tests.
+
+![](test-result.PNG)
+
+## Wrap-up
+
+Overall, `covidasia` is a solid package that has rooms for improvement especially
+in the documentations area. I personally like the way the app dedicates one page to 
+each plots/table. This prevents the page in the shiny app to be overcrowded by contents.
+Moreover, the app is very easy to use thanks to instructions dedicated on each page.
 
 # Appendix
 
