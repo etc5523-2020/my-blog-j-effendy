@@ -8,8 +8,8 @@ author:
 date: 09-04-2020
 bibliography: bibliography.bib
 output:
-  distill::distill_article:
-    self_contained: false
+  html_document:
+    theme: flatly
 ---
 
 ```{r setup, include=FALSE}

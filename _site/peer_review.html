@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+
+
+<meta name="date" content="2020-10-30" />
+
+<title>Shiny App Peer Review</title>
+
+<script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/flatly.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<link href="site_libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
+<script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
+<link href="site_libs/anchor-sections-1.0/anchor-sections.css" rel="stylesheet" />
+<script src="site_libs/anchor-sections-1.0/anchor-sections.js"></script>
+
+<style type="text/css">
+  code{white-space: pre-wrap;}
+  span.smallcaps{font-variant: small-caps;}
+  span.underline{text-decoration: underline;}
+  div.column{display: inline-block; vertical-align: top; width: 50%;}
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  ul.task-list{list-style: none;}
+    </style>
+
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css">
+  pre:not([class]) {
+    background-color: white;
+  }
+</style>
+<script type="text/javascript">
+if (window.hljs) {
+  hljs.configure({languages: []});
+  hljs.initHighlightingOnLoad();
+  if (document.readyState && document.readyState === "complete") {
+    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
+  }
+}
+</script>
+
+
+
+<style type="text/css">
+h1 {
+  font-size: 34px;
+}
+h1.title {
+  font-size: 38px;
+}
+h2 {
+  font-size: 30px;
+}
+h3 {
+  font-size: 24px;
+}
+h4 {
+  font-size: 18px;
+}
+h5 {
+  font-size: 16px;
+}
+h6 {
+  font-size: 12px;
+}
+.table th:not([align]) {
+  text-align: left;
+}
+</style>
+
+
+
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+code {
+  color: inherit;
+  background-color: rgba(0, 0, 0, 0.04);
+}
+img {
+  max-width:100%;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+summary {
+  display: list-item;
+}
+</style>
+
+
+<style type="text/css">
+/* padding for bootstrap navbar */
+body {
+  padding-top: 60px;
+  padding-bottom: 40px;
+}
+/* offset scroll position for anchor links (for fixed navbar)  */
+.section h1 {
+  padding-top: 65px;
+  margin-top: -65px;
+}
+.section h2 {
+  padding-top: 65px;
+  margin-top: -65px;
+}
+.section h3 {
+  padding-top: 65px;
+  margin-top: -65px;
+}
+.section h4 {
+  padding-top: 65px;
+  margin-top: -65px;
+}
+.section h5 {
+  padding-top: 65px;
+  margin-top: -65px;
+}
+.section h6 {
+  padding-top: 65px;
+  margin-top: -65px;
+}
+.dropdown-submenu {
+  position: relative;
+}
+.dropdown-submenu>.dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -6px;
+  margin-left: -1px;
+  border-radius: 0 6px 6px 6px;
+}
+.dropdown-submenu:hover>.dropdown-menu {
+  display: block;
+}
+.dropdown-submenu>a:after {
+  display: block;
+  content: " ";
+  float: right;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-left-color: #cccccc;
+  margin-top: 5px;
+  margin-right: -10px;
+}
+.dropdown-submenu:hover>a:after {
+  border-left-color: #ffffff;
+}
+.dropdown-submenu.pull-left {
+  float: none;
+}
+.dropdown-submenu.pull-left>.dropdown-menu {
+  left: -100%;
+  margin-left: 10px;
+  border-radius: 6px 0 6px 6px;
+}
+</style>
+
+<script>
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark it active
+  menuAnchor.parent().addClass('active');
+
+  // if it's got a parent navbar menu mark it active as well
+  menuAnchor.closest('li.dropdown').addClass('active');
+});
+</script>
+
+<!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "&#xe258;";
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+  background-color: transparent;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
+<!-- code folding -->
+
+
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
+
+
+
+
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html"></a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li>
+  <a href="brief_analysis.html">Brief Analysis</a>
+</li>
+<li>
+  <a href="serbia_covid.html">Serbia Covid</a>
+</li>
+<li>
+  <a href="Self-Review.html">Self-Review</a>
+</li>
+<li>
+  <a href="peer_review.html">Peer Review</a>
+</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li>
+  <a href="index.html">Home</a>
+</li>
+<li>
+  <a href="about.html">About</a>
+</li>
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div class="fluid-row" id="header">
+
+
+
+<h1 class="title toc-ignore">Shiny App Peer Review</h1>
+<h4 class="author">Jimmy Effendy</h4>
+<address class="author_afil">
+Monash University<br><h4 class="date">2020-10-30</h4>
+
+</div>
+
+
+<div id="introduction" class="section level2">
+<h2>Introduction</h2>
+<p>Last week, we were required to create an R package as a part of ETC5523 Communicating with Data subject. In today’s blog post, I am going to review a package that was created by one of my colleagues and reflect on how others overcome similar challenges that I had. The package that I am reviewing today is called <a href="https://github.com/etc5523-2020/r-package-assessment-Siddhant-96"><code>covidasia</code></a>, and it is developed by Siddhant Tirodkar. The package embeds a shiny app called <em>COVID-19 in SAARC Countries</em> where it provides a comprehensive summary of COVID-19 spread in major Asian countries.</p>
+<p><img src="fig/covidasia-screenshot.PNG" /></p>
+</div>
+<div id="the-package" class="section level2">
+<h2>The Package</h2>
+<p>The package can be installed and run as specified in the instruction from README in Github without problem. The app also run well, and it generally responds well to users’ input. The app utilises a line plot, a map plot, and interactive tables to provide users with cumulative, daily, and monthly statistics. These plots and table are housed in a page and are accompanied by a short description. The plots and table are interactive based on users’ input (e.g. users can select specific parameter or date range to be presented in the plots or table).</p>
+<p>The countries included in this package are:</p>
+<ul>
+<li>India</li>
+<li>Pakistan</li>
+<li>China</li>
+<li>Bangladesh</li>
+<li>Nepal</li>
+<li>Sri Lanka</li>
+<li>Maldives</li>
+</ul>
+<p>A vignette was provided by the package, and it can be found <a href="https://etc5523-2020.github.io/r-package-assessment-Siddhant-96/">here</a>. Moreover, further documentations are also provided for all the three functions provided by the package, and it can be found locally (e.g. <code>?covidasia::launch_app()</code>). Lastly, there are two unit tests deployed in the package, and the package successfully pass these tests.</p>
+</div>
+<div id="room-for-improvement" class="section level2">
+<h2>Room for Improvement</h2>
+<p>While it can be installed and run without difficulty, there is definitely a room for improvement for the package. Firstly, the line plot and interactive table do not respond to users input for country.</p>
+<p><img src="fig/covidasia-country.png" /></p>
+<p>Another aspect of the package that can be improved is its documentations. While vignettes and readme documents are provided, it would have been better if the background, specific functionality, and overview of the package are more thoroughly explained/described in the documentations. Moreover, while the package successfully passed the tests, there are six warnings produced by the tests.</p>
+<p><img src="fig/test-result.PNG" /></p>
+</div>
+<div id="wrap-up" class="section level2">
+<h2>Wrap-up</h2>
+<p>Overall, <code>covidasia</code> is a solid package that has rooms for improvement especially in the documentations area. I personally like the way the app dedicates one page to each plots/table. This prevents the page in the shiny app to be overcrowded by contents. Moreover, the app is very easy to use thanks to instructions dedicated on each page.</p>
+</div>
+<div id="appendix" class="section level1">
+<h1>Appendix</h1>
+<div id="package-review" class="section level2">
+<h2>Package Review</h2>
+<p><em>Please check off boxes as applicable, and elaborate in comments below. Your review is not limited to these topics, as described in the reviewer guide</em></p>
+<ul>
+<li><strong>Briefly describe any working relationship you have (had) with the package authors.</strong></li>
+<li><input type="checkbox" disabled="" checked="" />
+As the reviewer I confirm that there are no <a href="https://devguide.ropensci.org/policies.html#coi">conflicts of interest</a> for me to review this work (If you are unsure whether you are in conflict, please speak to your editor <em>before</em> starting your review).</li>
+</ul>
+<div id="documentation" class="section level4">
+<h4>Documentation</h4>
+<p>The package includes all the following forms of documentation:</p>
+<ul>
+<li><input type="checkbox" disabled="" checked="" />
+<strong>A statement of need</strong> clearly stating problems the software is designed to solve and its target audience in README</li>
+<li><input type="checkbox" disabled="" checked="" />
+<strong>Installation instructions:</strong> for the development version of package and any non-standard dependencies in README</li>
+<li><input type="checkbox" disabled="" />
+<strong>Vignette(s)</strong> demonstrating major functionality that runs successfully locally</li>
+<li><input type="checkbox" disabled="" checked="" />
+<strong>Function Documentation:</strong> for all exported functions in R help</li>
+<li><input type="checkbox" disabled="" />
+<strong>Examples</strong> for all exported functions in R Help that run successfully locally</li>
+<li><input type="checkbox" disabled="" checked="" />
+<strong>Community guidelines</strong> including contribution guidelines in the README or CONTRIBUTING, and DESCRIPTION with <code>URL</code>, <code>BugReports</code> and <code>Maintainer</code> (which may be autogenerated via <code>Authors@R</code>).</li>
+</ul>
+<blockquote>
+<h5 id="for-packages-co-submitting-to-joss">For packages co-submitting to JOSS</h5>
+<ul>
+<li><input type="checkbox" disabled="" />
+The package has an <strong>obvious research application</strong> according to <a href="https://joss.theoj.org/about#submission_requirements">JOSS’s definition</a></li>
+</ul>
+<p>The package contains a <code>paper.md</code> matching <a href="https://joss.theoj.org/about#paper_structure">JOSS’s requirements</a> with:</p>
+<ul>
+<li><input type="checkbox" disabled="" />
+<strong>A short summary</strong> describing the high-level functionality of the software</li>
+<li><input type="checkbox" disabled="" />
+<strong>Authors:</strong> A list of authors with their affiliations</li>
+<li><input type="checkbox" disabled="" />
+<strong>A statement of need</strong> clearly stating problems the software is designed to solve and its target audience.</li>
+<li><input type="checkbox" disabled="" />
+<strong>References:</strong> with DOIs for all those that have one (e.g. papers, datasets, software).</li>
+</ul>
+</blockquote>
+</div>
+<div id="functionality" class="section level4">
+<h4>Functionality</h4>
+<ul>
+<li><input type="checkbox" disabled="" checked="" />
+<strong>Installation:</strong> Installation succeeds as documented.</li>
+<li><input type="checkbox" disabled="" checked="" />
+<strong>Functionality:</strong> Any functional claims of the software been confirmed.</li>
+<li><input type="checkbox" disabled="" checked="" />
+<strong>Performance:</strong> Any performance claims of the software been confirmed.</li>
+<li><input type="checkbox" disabled="" checked="" />
+<strong>Automated tests:</strong> Unit tests cover essential functions of the package and a reasonable range of inputs and conditions. All tests pass on the local machine.</li>
+<li><input type="checkbox" disabled="" checked="" />
+<strong>Packaging guidelines</strong>: The package conforms to the rOpenSci packaging guidelines</li>
+</ul>
+<p>Estimated hours spent reviewing:</p>
+<ul>
+<li><input type="checkbox" disabled="" />
+Should the author(s) deem it appropriate, I agree to be acknowledged as a package reviewer (“rev” role) in the package DESCRIPTION file.</li>
+</ul>
+<hr />
+</div>
+<div id="review-comments" class="section level3">
+<h3>Review Comments</h3>
+</div>
+</div>
+</div>
+
+
+
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.odd').parent('tbody').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open')
+  });
+});
+</script>
+
+<!-- code folding -->
+
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>

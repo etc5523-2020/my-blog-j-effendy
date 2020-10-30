@@ -9,4 +9,15 @@ navbar:
       href: index.html
     - text: "About"
       href: about.html
-output: distill::distill_article
+  left:
+    - text: "Brief Analysis"
+      href: brief_analysis.html
+    - text: "Serbia Covid"
+      href: serbia_covid.html
+    - text: "Self-Review"
+      href: Self-Review.html
+    - text: "Peer Review"
+      href: peer_review.html
+output:
+  html_document:
+    theme: flatly
