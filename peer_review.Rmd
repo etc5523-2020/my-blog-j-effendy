@@ -63,7 +63,8 @@ successfully pass these tests.
 
 While it can be installed and run without difficulty, there is definitely a
 room for improvement for the package. Firstly, the line plot and interactive
-table do not respond to users input for country.
+table do not respond to users input for country. Nevertheless, the plots and
+table do respond to user inputs for other parameters.
 
 ![](fig/covidasia-country.png)
 
